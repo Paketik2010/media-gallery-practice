@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MediaGallery — учебный проект мультимедийной галереи">
+  <title>Главная — MediaGallery</title>
+  <link rel="icon" type="image/svg+xml" href="assets/media/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="index.html"><span class="brand-icon">▧</span> MediaGallery</a>
+      <nav class="desktop-menu" aria-label="Основное меню">
+        <a href="index.html" class="active" aria-current="page">Главная</a>
+<a href="pages/gallery.html">Галерея</a>
+<a href="pages/images.html">Изображения</a>
+<a href="pages/videos.html">Видео</a>
+<a href="pages/audio.html">Аудио</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-link" href="pages/search.html">Поиск</a>
+        <a class="button button--outline header-login" href="pages/login.html">Войти</a>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">☰</button>
+      </div>
+    </div>
+    <nav id="mobile-menu" class="mobile-menu container" aria-label="Мобильное меню" hidden>
+      <a href="index.html" class="active" aria-current="page">Главная</a>
+<a href="pages/gallery.html">Галерея</a>
+<a href="pages/images.html">Изображения</a>
+<a href="pages/videos.html">Видео</a>
+<a href="pages/audio.html">Аудио</a>
+<a href="pages/search.html">Поиск</a>
+<a href="pages/login.html">Вход</a>
+<a href="pages/register.html">Регистрация</a>
+<a href="pages/profile.html">Личный кабинет</a>
+<a href="pages/upload.html">Добавить материал</a>
+    </nav>
+  </header>
+  <main class="container"><section class="hero">
+  <div class="hero-copy"><span class="eyebrow">Мультимедийная галерея</span>
+    <h1>Храните и находите интересные материалы</h1>
+    <p>Изображения, видео и аудио в одном месте. Удобные разделы, общая галерея и личный кабинет.</p>
+    <div class="hero-actions">
+      <a class="button button--primary" href="pages/gallery.html">Открыть галерею</a>
+      <a class="button button--light" href="pages/register.html">Создать аккаунт</a>
+    </div>
+  </div>
+  <div class="hero-picture" aria-hidden="true"><div class="hero-symbol">▧</div><div class="hero-caption">Фото · Видео · Аудио</div></div>
+</section>
+<section class="section-block"><div class="section-heading"><h2>Разделы сайта</h2><p>Выберите нужный формат материала</p></div>
+<div class="category-grid">
+<a class="category-item" href="pages/images.html"><span class="category-icon">▧</span><strong>Изображения</strong><span>Фото и иллюстрации</span></a>
+<a class="category-item" href="pages/videos.html"><span class="category-icon">▶</span><strong>Видео</strong><span>Обучение и развлечения</span></a>
+<a class="category-item" href="pages/audio.html"><span class="category-icon">♫</span><strong>Аудио</strong><span>Музыка и записи</span></a>
+</div></section>
+<section class="section-block"><div class="section-heading section-heading--row"><div><h2>Примеры материалов</h2><p>Оформление карточек для будущей галереи</p></div><a class="text-link" href="pages/gallery.html">Все материалы →</a></div><div class="card-grid"><article class="media-card">
+  <a class="card-image card-image--nature" href="pages/images.html" aria-label="Открыть раздел изображение"><span>◈</span></a>
+  <div class="card-content">
+    <div class="card-details"><span>Изображение</span><span>Природа</span></div>
+    <h3>Горный пейзаж</h3>
+    <p>Автор: Алексей</p>
+  </div>
+</article>
+<article class="media-card">
+  <a class="card-image card-image--city" href="pages/images.html" aria-label="Открыть раздел изображение"><span>▥</span></a>
+  <div class="card-content">
+    <div class="card-details"><span>Изображение</span><span>Город</span></div>
+    <h3>Вечерний город</h3>
+    <p>Автор: Мария</p>
+  </div>
+</article>
+<article class="media-card">
+  <a class="card-image card-image--water" href="pages/videos.html" aria-label="Открыть раздел видео"><span>▶</span></a>
+  <div class="card-content">
+    <div class="card-details"><span>Видео</span><span>Путешествия</span></div>
+    <h3>Путешествие к морю</h3>
+    <p>Автор: Ирина</p>
+  </div>
+</article></div></section></main>
+  <footer class="site-footer">
+    <div class="container footer-row"><span>© 2026 MediaGallery</span><span>Учебный проект · Первый этап</span></div>
+  </footer>
+</body>
+</html>
