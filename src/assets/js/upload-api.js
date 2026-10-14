@@ -42,6 +42,19 @@
     const short = header?.querySelector("span:last-child");
     if (short && short !== uploadTitle) short.textContent = config.short;
 
+    const helpNode = [...scope.querySelectorAll("div")].find((node) =>
+      node.querySelector(":scope > .material-symbols-outlined")?.textContent.trim() === "info" &&
+      node.textContent.includes("Поддерживаемые форматы:"));
+    helpNode?.childNodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes("Поддерживаемые форматы:")) {
+        node.nodeValue = " " + config.help;
+      }
+    });
+    const linkLabel = [...scope.querySelectorAll("label")].find((node) =>
+      node.textContent.includes("Ссылка на внешний видеопоток"));
+    if (linkLabel) linkLabel.textContent = "Ссылка на материал";
+
+
     [...scope.querySelectorAll("div,p")].forEach((node) => {
       const text = node.textContent.trim();
 
