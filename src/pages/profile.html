@@ -8,8 +8,9 @@
   <link rel="icon" type="image/svg+xml" href="../assets/media/favicon.svg">
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/week2.js" defer></script>
 </head>
-<body>
+<body data-week2="profile">
   <header class="site-header">
     <div class="container header-row">
       <a class="brand" href="../index.html"><span class="brand-icon">▧</span> MediaGallery</a>
@@ -39,12 +40,20 @@
 <a href="../pages/upload.html">Добавить материал</a>
     </nav>
   </header>
-  <main class="container"><section class="page-heading"><span class="eyebrow">Мультимедийная галерея</span><h1>Личный кабинет</h1><p>Здесь пользователь сможет просматривать информацию об аккаунте и собственные материалы.</p></section>
-<section class="profile-panel"><div class="profile-avatar">МС</div><div><h2>Имя пользователя</h2><p>Данные профиля будут загружаться после авторизации.</p></div></section>
-<section class="section-block"><div class="section-heading"><h2>Мои материалы</h2><p>Этот раздел будет подключён к базе данных на второй неделе.</p></div>
-<div class="empty-state"><span>▧</span><p>Пока нет добавленных материалов</p><a class="text-link" href="upload.html">Перейти к форме добавления →</a></div></section></main>
+  <main class="container">
+  <section class="page-heading"><span class="eyebrow">Мультимедийная галерея</span><h1>Личный кабинет</h1><p>Данные аккаунта и добавленные материалы.</p></section>
+  <section id="profile-info" class="profile-panel">
+    <div id="profile-avatar" class="profile-avatar">?</div>
+    <div><h2 id="profile-name">Загрузка...</h2><p id="profile-data"></p></div>
+    <button id="logout-button" class="button button--outline" type="button">Выйти</button>
+  </section>
+  <section class="section-block">
+    <div class="section-heading section-heading--row"><h2>Мои материалы</h2><a class="text-link" href="upload.html">Добавить материал →</a></div>
+    <div id="my-materials">Загрузка...</div>
+  </section>
+</main>
   <footer class="site-footer">
-    <div class="container footer-row"><span>© 2026 MediaGallery</span><span>Учебный проект · Первый этап</span></div>
+    <div class="container footer-row"><span>© 2026 MediaGallery</span><span>Учебный проект</span></div>
   </footer>
 </body>
 </html>

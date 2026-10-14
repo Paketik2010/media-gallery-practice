@@ -8,8 +8,9 @@
   <link rel="icon" type="image/svg+xml" href="../assets/media/favicon.svg">
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/week2.js" defer></script>
 </head>
-<body>
+<body data-week2="gallery">
   <header class="site-header">
     <div class="container header-row">
       <a class="brand" href="../index.html"><span class="brand-icon">▧</span> MediaGallery</a>
@@ -39,57 +40,12 @@
 <a href="../pages/upload.html">Добавить материал</a>
     </nav>
   </header>
-  <main class="container"><section class="page-heading"><span class="eyebrow">Мультимедийная галерея</span><h1>Галерея</h1><p>Общий список материалов разных форматов. Пока здесь примеры карточек.</p></section>
-<section class="section-block"><div class="card-grid"><article class="media-card">
-  <a class="card-image card-image--nature" href="../pages/images.html" aria-label="Открыть раздел изображение"><span>◈</span></a>
-  <div class="card-content">
-    <div class="card-details"><span>Изображение</span><span>Природа</span></div>
-    <h3>Горный пейзаж</h3>
-    <p>Автор: Алексей</p>
-  </div>
-</article>
-<article class="media-card">
-  <a class="card-image card-image--city" href="../pages/images.html" aria-label="Открыть раздел изображение"><span>▥</span></a>
-  <div class="card-content">
-    <div class="card-details"><span>Изображение</span><span>Город</span></div>
-    <h3>Вечерний город</h3>
-    <p>Автор: Мария</p>
-  </div>
-</article>
-<article class="media-card">
-  <a class="card-image card-image--water" href="../pages/videos.html" aria-label="Открыть раздел видео"><span>▶</span></a>
-  <div class="card-content">
-    <div class="card-details"><span>Видео</span><span>Путешествия</span></div>
-    <h3>Путешествие к морю</h3>
-    <p>Автор: Ирина</p>
-  </div>
-</article>
-<article class="media-card">
-  <a class="card-image card-image--photo" href="../pages/videos.html" aria-label="Открыть раздел видео"><span>▶</span></a>
-  <div class="card-content">
-    <div class="card-details"><span>Видео</span><span>Обучение</span></div>
-    <h3>Основы фотографии</h3>
-    <p>Автор: Даниил</p>
-  </div>
-</article>
-<article class="media-card">
-  <a class="card-image card-image--music" href="../pages/audio.html" aria-label="Открыть раздел аудио"><span>♫</span></a>
-  <div class="card-content">
-    <div class="card-details"><span>Аудио</span><span>Музыка</span></div>
-    <h3>Спокойная мелодия</h3>
-    <p>Автор: Никита</p>
-  </div>
-</article>
-<article class="media-card">
-  <a class="card-image card-image--forest" href="../pages/audio.html" aria-label="Открыть раздел аудио"><span>♫</span></a>
-  <div class="card-content">
-    <div class="card-details"><span>Аудио</span><span>Природа</span></div>
-    <h3>Звуки леса</h3>
-    <p>Автор: Ольга</p>
-  </div>
-</article></div></section></main>
+  <main class="container">
+  <section class="page-heading"><span class="eyebrow">Мультимедийная галерея</span><h1>Галерея</h1><p>Материалы, добавленные пользователями.</p></section>
+  <section class="section-block"><div id="gallery-materials">Загрузка материалов...</div></section>
+</main>
   <footer class="site-footer">
-    <div class="container footer-row"><span>© 2026 MediaGallery</span><span>Учебный проект · Первый этап</span></div>
+    <div class="container footer-row"><span>© 2026 MediaGallery</span><span>Учебный проект</span></div>
   </footer>
 </body>
 </html>

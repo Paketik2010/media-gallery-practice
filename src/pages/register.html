@@ -8,8 +8,9 @@
   <link rel="icon" type="image/svg+xml" href="../assets/media/favicon.svg">
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/week2.js" defer></script>
 </head>
-<body>
+<body data-week2="register">
   <header class="site-header">
     <div class="container header-row">
       <a class="brand" href="../index.html"><span class="brand-icon">▧</span> MediaGallery</a>
@@ -39,18 +40,23 @@
 <a href="../pages/upload.html">Добавить материал</a>
     </nav>
   </header>
-  <main class="container"><section class="page-heading"><span class="eyebrow">Мультимедийная галерея</span><h1>Регистрация</h1><p>Страница создания аккаунта. Подключение к базе данных планируется на следующем этапе.</p></section>
-<section class="form-panel"><h2>Создать аккаунт</h2>
-<form class="form-grid">
-<label class="field"><span>Имя</span><input id="name" type="text" placeholder="Ваше имя" autocomplete="name" required></label>
-<label class="field"><span>Логин</span><input id="username" type="text" placeholder="Придумайте логин" autocomplete="username" required></label>
-<label class="field"><span>Электронная почта</span><input id="email" type="email" placeholder="example@mail.ru" autocomplete="email" required></label>
-<label class="field"><span>Пароль</span><input id="password" type="password" placeholder="Не менее 8 символов" autocomplete="new-password" required></label>
-<button class="button button--primary" type="button" disabled>Зарегистрироваться</button>
-<p class="form-note">Обработка формы будет добавлена на второй неделе.</p>
-</form><p class="under-form">Есть аккаунт? <a href="login.html">Войти</a></p></section></main>
+  <main class="container">
+  <section class="page-heading"><span class="eyebrow">Мультимедийная галерея</span><h1>Регистрация</h1><p>Создание нового аккаунта.</p></section>
+  <section class="form-panel"><h2>Создать аккаунт</h2>
+    <form id="account-form" class="form-grid">
+      <label class="field"><span>Имя</span><input name="name" type="text" placeholder="Ваше имя" minlength="2" maxlength="100" autocomplete="name" required></label>
+      <label class="field"><span>Логин (латиница, цифры, _)</span><input name="username" type="text" placeholder="Придумайте логин" pattern="[A-Za-z0-9_]{3,50}" autocomplete="username" required></label>
+      <label class="field"><span>Электронная почта</span><input name="email" type="email" placeholder="example@mail.ru" maxlength="150" autocomplete="email" required></label>
+      <label class="field"><span>Пароль</span><input name="password" type="password" placeholder="Не менее 8 символов" minlength="8" maxlength="72" autocomplete="new-password" required></label>
+      <label class="field"><span>Повторите пароль</span><input name="confirm_password" type="password" placeholder="Повторите пароль" minlength="8" autocomplete="new-password" required></label>
+      <button class="button button--primary" type="submit">Зарегистрироваться</button>
+      <p id="form-message" class="form-message" role="status" hidden></p>
+    </form>
+    <p class="under-form">Есть аккаунт? <a href="login.html">Войти</a></p>
+  </section>
+</main>
   <footer class="site-footer">
-    <div class="container footer-row"><span>© 2026 MediaGallery</span><span>Учебный проект · Первый этап</span></div>
+    <div class="container footer-row"><span>© 2026 MediaGallery</span><span>Учебный проект</span></div>
   </footer>
 </body>
 </html>

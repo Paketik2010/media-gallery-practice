@@ -8,8 +8,9 @@
   <link rel="icon" type="image/svg+xml" href="../assets/media/favicon.svg">
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/week2.js" defer></script>
 </head>
-<body>
+<body data-week2="login">
   <header class="site-header">
     <div class="container header-row">
       <a class="brand" href="../index.html"><span class="brand-icon">▧</span> MediaGallery</a>
@@ -39,15 +40,20 @@
 <a href="../pages/upload.html">Добавить материал</a>
     </nav>
   </header>
-  <main class="container"><section class="page-heading"><span class="eyebrow">Мультимедийная галерея</span><h1>Вход</h1><p>Макет страницы авторизации пользователя.</p></section>
-<section class="form-panel"><h2>Войти в аккаунт</h2><form class="form-grid">
-<label class="field"><span>Логин или email</span><input id="login" type="text" placeholder="Введите логин" autocomplete="username" required></label>
-<label class="field"><span>Пароль</span><input id="password" type="password" placeholder="Введите пароль" autocomplete="current-password" required></label>
-<button class="button button--primary" type="button" disabled>Войти</button>
-<p class="form-note">Авторизация будет подключена после подготовки серверной части.</p>
-</form><p class="under-form">Нет аккаунта? <a href="register.html">Регистрация</a></p></section></main>
+  <main class="container">
+  <section class="page-heading"><span class="eyebrow">Мультимедийная галерея</span><h1>Вход</h1><p>Авторизация пользователя.</p></section>
+  <section class="form-panel"><h2>Войти в аккаунт</h2>
+    <form id="account-form" class="form-grid">
+      <label class="field"><span>Логин или email</span><input name="identifier" type="text" placeholder="Введите логин" autocomplete="username" required></label>
+      <label class="field"><span>Пароль</span><input name="password" type="password" placeholder="Введите пароль" autocomplete="current-password" required></label>
+      <button class="button button--primary" type="submit">Войти</button>
+      <p id="form-message" class="form-message" role="status" hidden></p>
+    </form>
+    <p class="under-form">Нет аккаунта? <a href="register.html">Регистрация</a></p>
+  </section>
+</main>
   <footer class="site-footer">
-    <div class="container footer-row"><span>© 2026 MediaGallery</span><span>Учебный проект · Первый этап</span></div>
+    <div class="container footer-row"><span>© 2026 MediaGallery</span><span>Учебный проект</span></div>
   </footer>
 </body>
 </html>

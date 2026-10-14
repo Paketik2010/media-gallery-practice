@@ -8,8 +8,9 @@
   <link rel="icon" type="image/svg+xml" href="../assets/media/favicon.svg">
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/week2.js" defer></script>
 </head>
-<body>
+<body data-week2="upload">
   <header class="site-header">
     <div class="container header-row">
       <a class="brand" href="../index.html"><span class="brand-icon">▧</span> MediaGallery</a>
@@ -39,18 +40,24 @@
 <a href="../pages/upload.html" class="active" aria-current="page">Добавить материал</a>
     </nav>
   </header>
-  <main class="container"><section class="page-heading"><span class="eyebrow">Мультимедийная галерея</span><h1>Добавить материал</h1><p>Форма будущей загрузки изображения, видео или аудиофайла.</p></section>
-<section class="form-panel form-panel--wide"><h2>Новый материал</h2><form class="form-grid">
-<label class="field"><span>Название</span><input id="title" type="text" placeholder="Введите название материала" required></label>
-<label class="field"><span>Описание</span><textarea rows="4" placeholder="Краткое описание"></textarea></label>
-<div class="form-columns"><label class="field"><span>Тип материала</span><select><option>Изображение</option><option>Видео</option><option>Аудио</option></select></label>
-<label class="field"><span>Категория</span><select><option>Фотографии</option><option>Музыка</option><option>Обучение</option><option>Развлечения</option><option>Другое</option></select></label></div>
-<label class="field"><span>Выберите файл</span><input type="file" accept="image/*,video/*,audio/*"></label>
-<button class="button button--primary" type="button" disabled>Добавить</button>
-<p class="form-note">Загрузка файлов и сохранение в базе данных будут реализованы позднее.</p>
-</form></section></main>
+  <main class="container">
+  <section class="page-heading"><span class="eyebrow">Мультимедийная галерея</span><h1>Добавить материал</h1><p>Укажите данные материала и ссылку на медиафайл.</p></section>
+  <section class="form-panel form-panel--wide"><h2>Новый материал</h2>
+    <form id="material-form" class="form-grid">
+      <label class="field"><span>Название</span><input name="title" type="text" maxlength="200" placeholder="Введите название материала" required></label>
+      <label class="field"><span>Краткое описание</span><textarea name="description" rows="4" maxlength="2000" placeholder="Краткое описание"></textarea></label>
+      <div class="form-columns">
+        <label class="field"><span>Тип материала</span><select name="type" required><option value="image">Изображение</option><option value="video">Видео</option><option value="audio">Аудио</option></select></label>
+        <label class="field"><span>Категория</span><select id="category" name="category" required><option value="">Загрузка категорий...</option></select></label>
+      </div>
+      <label class="field"><span>Прямая ссылка на файл</span><input name="source_url" type="url" maxlength="500" placeholder="https://example.com/photo.jpg" required></label>
+      <button class="button button--primary" type="submit">Добавить материал</button>
+    </form>
+    <p id="form-message" class="form-message" role="status" hidden></p>
+  </section>
+</main>
   <footer class="site-footer">
-    <div class="container footer-row"><span>© 2026 MediaGallery</span><span>Учебный проект · Первый этап</span></div>
+    <div class="container footer-row"><span>© 2026 MediaGallery</span><span>Учебный проект</span></div>
   </footer>
 </body>
 </html>

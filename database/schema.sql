@@ -1,5 +1,4 @@
--- Предварительная схема базы данных MediaGallery
--- Реализация подключения и работы с таблицами планируется на второй неделе.
+-- Схема базы данных MediaGallery
 
 CREATE DATABASE IF NOT EXISTS mediagallery CHARACTER SET utf8mb4;
 USE mediagallery;
@@ -31,3 +30,10 @@ CREATE TABLE IF NOT EXISTS materials (
     FOREIGN KEY (category_id) REFERENCES categories(id),
     FOREIGN KEY (author_id) REFERENCES users(id)
 );
+
+INSERT IGNORE INTO categories (name) VALUES
+    ('Фотографии'),
+    ('Музыка'),
+    ('Обучение'),
+    ('Развлечения'),
+    ('Другое');
