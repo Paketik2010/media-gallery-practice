@@ -1,87 +1,873 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MediaGallery — учебный проект мультимедийной галереи">
-  <title>Главная — MediaGallery</title>
-  <link rel="icon" type="image/svg+xml" href="assets/media/favicon.svg">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/main.js" defer></script>
-</head>
-<body>
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="index.html"><span class="brand-icon">▧</span> MediaGallery</a>
-      <nav class="desktop-menu" aria-label="Основное меню">
-        <a href="index.html" class="active" aria-current="page">Главная</a>
-<a href="pages/gallery.html">Галерея</a>
-<a href="pages/images.html">Изображения</a>
-<a href="pages/videos.html">Видео</a>
-<a href="pages/audio.html">Аудио</a>
-      </nav>
-      <div class="header-actions">
-        <a class="header-link" href="pages/search.html">Поиск</a>
-        <a class="button button--outline header-login" href="pages/login.html">Войти</a>
-        <button class="menu-toggle" type="button" data-menu-toggle aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">☰</button>
-      </div>
-    </div>
-    <nav id="mobile-menu" class="mobile-menu container" aria-label="Мобильное меню" hidden>
-      <a href="index.html" class="active" aria-current="page">Главная</a>
-<a href="pages/gallery.html">Галерея</a>
-<a href="pages/images.html">Изображения</a>
-<a href="pages/videos.html">Видео</a>
-<a href="pages/audio.html">Аудио</a>
-<a href="pages/search.html">Поиск</a>
-<a href="pages/login.html">Вход</a>
-<a href="pages/register.html">Регистрация</a>
-<a href="pages/profile.html">Личный кабинет</a>
-<a href="pages/upload.html">Добавить материал</a>
-    </nav>
-  </header>
-  <main class="container"><section class="hero">
-  <div class="hero-copy"><span class="eyebrow">Мультимедийная галерея</span>
-    <h1>Храните и находите интересные материалы</h1>
-    <p>Изображения, видео и аудио в одном месте. Удобные разделы, общая галерея и личный кабинет.</p>
-    <div class="hero-actions">
-      <a class="button button--primary" href="pages/gallery.html">Открыть галерею</a>
-      <a class="button button--light" href="pages/register.html">Создать аккаунт</a>
-    </div>
-  </div>
-  <div class="hero-picture" aria-hidden="true"><div class="hero-symbol">▧</div><div class="hero-caption">Фото · Видео · Аудио</div></div>
+<!DOCTYPE html><html lang="ru"><head><script>document.documentElement.classList.add("mg-preinit");</script><style>html.mg-preinit .desktop-view,html.mg-preinit .mobile-view{visibility:hidden!important}</style><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed": "#0f0069", "on-primary-fixed-variant": "#3323cc", "background": "#f8f9ff", "surface-container-highest": "#d3e4fe", "error-container": "#ffdad6", "on-secondary-container": "#004666", "on-secondary-fixed-variant": "#004c6e", "surface-container-low": "#eff4ff", "inverse-on-surface": "#eaf1ff", "on-secondary-fixed": "#001e2f", "on-surface-variant": "#464555", "on-tertiary-fixed": "#23005c", "primary-fixed-dim": "#c3c0ff", "secondary-fixed": "#c9e6ff", "surface-container-high": "#dce9ff", "on-tertiary-fixed-variant": "#5516be", "tertiary-fixed": "#e9ddff", "on-error-container": "#93000a", "surface-tint": "#4d44e3", "secondary": "#006591", "surface-container": "#e5eeff", "tertiary": "#571ac0", "tertiary-fixed-dim": "#d0bcff", "outline": "#777587", "surface-variant": "#d3e4fe", "primary": "#3525cd", "on-primary": "#ffffff", "on-surface": "#0b1c30", "inverse-primary": "#c3c0ff", "surface-bright": "#f8f9ff", "primary-fixed": "#e2dfff", "on-tertiary": "#ffffff", "inverse-surface": "#213145", "surface-dim": "#cbdbf5", "outline-variant": "#c7c4d8", "on-primary-container": "#dad7ff", "error": "#ba1a1a", "primary-container": "#4f46e5", "on-tertiary-container": "#e3d5ff", "tertiary-container": "#6f3dd9", "secondary-container": "#39b8fd", "surface": "#f8f9ff", "on-secondary": "#ffffff", "on-error": "#ffffff", "on-background": "#0b1c30", "secondary-fixed-dim": "#89ceff", "surface-container-lowest": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-mobile": "1rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "margin": "2rem", "space-xs": "0.25rem", "space-md": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-xl": "2rem" }, "fontFamily": { "headline-lg-mobile": ["Inter"], "label-md": ["Inter"], "body-sm": ["Inter"], "body-lg": ["Inter"], "title-md": ["Inter"], "headline-md": ["Inter"], "headline-sm": ["Inter"], "label-caps": ["Inter"], "display": ["Inter"], "label-lg": ["Inter"], "body-md": ["Inter"], "headline-lg": ["Inter"] }, "fontSize": { "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }], "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };</script><style media="(max-width: 680px)">@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#f8f9ff;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link rel="stylesheet" href="assets/css/responsive-views.css?v=20261007m2"><link rel="stylesheet" href="assets/css/unified-cards.css?v=20261007m2"><link rel="stylesheet" href="assets/css/unified-filters.css?v=20261007m2"><link rel="stylesheet" href="assets/css/brand.css?v=20261008m12"></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><div class="desktop-view bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="max-w-[1280px] mx-auto px-margin h-16 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm" data-path="main" href="#"><img alt="MediaGallery Logo" class="h-8 w-auto object-contain" src="/assets/media/logo.svg"/><span class="font-title-md text-title-md text-on-surface tracking-tight">MediaGallery</span></a><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-title-md rounded-lg"><a aria-current="page" class="px-space-sm py-1.5 transition-colors bg-surface-container-high text-primary font-title-md rounded-lg" data-path="main" href="#">Главная</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="gallery" href="#">Галерея</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="images" href="#">Изображения</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="videos" href="#">Видео</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="audio" href="#">Аудио</a></nav></div><div class="flex items-center gap-space-sm"><div class="relative hidden sm:block w-64 md:w-72"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px] pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Поиск по названию..." type="text"/></div><a class="inline-flex items-center gap-1.5 h-10 px-space-md rounded-xl bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg transition-colors shadow-sm shrink-0" data-path="add-asset" href="#"><span class="material-symbols-outlined text-[18px]">add</span><span class="hidden md:inline">Добавить материал</span></a><div class="relative group shrink-0"><button class="flex items-center gap-space-xs p-1 rounded-full hover:bg-surface-container transition-colors" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="/assets/media/media-080.jpg"/><span class="hidden xl:inline-block font-label-md text-label-md text-on-surface font-medium max-w-[120px] truncate">Алексей Смирнов</span><span class="material-symbols-outlined text-outline text-[18px]">expand_more</span></button><div class="absolute right-0 top-full mt-2 w-56 bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.08)] border border-outline-variant/30 py-space-xs opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50"><div class="px-space-md py-space-xs border-b border-outline-variant/20 mb-space-xs"><p class="font-label-md text-label-md text-on-surface font-semibold">Алексей Смирнов</p><p class="font-body-sm text-body-sm text-outline truncate">alex.smirnov@example.com</p></div><a class="flex items-center gap-space-sm px-space-md py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm transition-colors" data-path="profile" href="#"><span class="material-symbols-outlined text-[18px]">person</span>Личный кабинет</a><a class="flex items-center gap-space-sm px-space-md py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm transition-colors" data-path="add-asset" href="#"><span class="material-symbols-outlined text-[18px]">add_circle</span>Добавить материал</a><div class="my-space-xs border-t border-outline-variant/20"></div><a class="flex items-center gap-space-sm px-space-md py-space-xs text-error hover:bg-error-container/40 font-body-sm text-body-sm transition-colors" data-path="login" href="#"><span class="material-symbols-outlined text-[18px]">logout</span>Выйти</a></div></div></div></div></header><main class="flex-1 w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Hero Section -->
+<section class="relative w-full max-w-[1280px] mx-auto px-margin py-space-xl lg:py-24 overflow-hidden">
+<!-- Ambient glow decorative blobs (strictly contained) -->
+<div class="absolute -top-24 left-1/4 w-96 h-96 bg-primary-fixed rounded-full blur-3xl opacity-40 pointer-events-none -z-10"></div>
+<div class="absolute top-1/3 -right-20 w-80 h-80 bg-secondary-fixed rounded-full blur-3xl opacity-40 pointer-events-none -z-10"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left Content Column -->
+<div class="lg:col-span-6 flex flex-col items-start gap-space-lg">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high text-primary font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span>Единое медиапространство</span>
+</div>
+<h1 class="font-display text-display text-on-surface tracking-tight text-balance">
+          Храните и делитесь любимыми материалами
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl text-balance">
+          Изображения, видео и аудио в одной удобной галерее. Мгновенный доступ, умная сортировка и воспроизведение без задержек.
+        </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs w-full sm:w-auto">
+<a class="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5" data-path="gallery" href="#">
+<span>Открыть галерею</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-xl bg-surface-container-lowest hover:bg-surface-container-low text-on-surface font-label-lg text-label-lg transition-all shadow-sm hover:shadow hover:-translate-y-0.5" data-path="add-asset" href="#">
+<span class="material-symbols-outlined text-primary text-[20px]">add_circle</span>
+<span>Добавить материал</span>
+</a>
+</div>
+<!-- Metrics pill bar -->
+<div class="grid grid-cols-3 gap-space-md pt-space-md w-full max-w-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">12K+</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Файлов сохранено</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">4K HDR</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Видеопоток</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">0 сек</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Задержка плеера</span>
+</div>
+</div>
+</div>
+<!-- Right Visual Composition (Bespoke Overlapping Trio) -->
+<div class="lg:col-span-6 relative h-[480px] w-full flex items-center justify-center">
+<!-- Floating Photo Card -->
+<div class="absolute top-0 right-4 sm:right-8 w-64 sm:w-72 bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300 z-20">
+<div class="relative h-44 w-full">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-077.jpg"/>
+<div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-secondary font-label-caps text-label-caps shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">image</span>
+<span>ФОТО</span>
+</div>
+</div>
+<div class="p-3.5 flex items-center justify-between">
+<div class="min-w-0">
+<p class="font-title-md text-title-md text-on-surface truncate">Озеро в Альпах</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">4240 × 2832 • RAW</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</div>
+</div>
+</div>
+<!-- Floating Video Card (Centerpiece) -->
+<div class="absolute top-28 left-0 sm:left-4 w-72 sm:w-80 bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300 z-30">
+<div class="relative h-48 w-full group cursor-pointer">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-058.jpg"/>
+<div class="absolute inset-0 bg-on-surface/20 flex items-center justify-center group-hover:bg-on-surface/30 transition-colors">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-label-caps text-label-caps shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">videocam</span>
+<span>ВИДЕО 4K</span>
+</div>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-on-surface/80 text-surface-container-lowest font-label-caps text-label-caps">
+              04:32
+            </div>
+</div>
+<div class="p-3.5 flex items-center justify-between">
+<div class="min-w-0">
+<p class="font-title-md text-title-md text-on-surface truncate">Шоурил анимации 2026</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">60 fps • H.265 • 280 МБ</p>
+</div>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+</div>
+<!-- Floating Audio Card (Bottom Right overlap) -->
+<div class="absolute -bottom-2 right-2 sm:right-12 w-64 sm:w-72 bg-surface-container-lowest rounded-xl shadow-xl p-3.5 transform hover:-translate-y-1 transition-all duration-300 z-40">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-040.jpg"/>
+<div class="absolute inset-0 bg-primary-container/20 flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[20px]">music_note</span>
+</div>
+</div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-caps text-label-caps">АУДИО</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">03:15</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface truncate mt-1">Deep Horizon Lo-Fi</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Ether Echoes</p>
+</div>
+</div>
+<!-- Audio Waveform Visualization -->
+<div class="mt-3 pt-2 flex items-center justify-between gap-1 h-6 px-1 bg-surface-container-low rounded-lg">
+<span class="w-1 bg-primary-container h-2 rounded-full"></span>
+<span class="w-1 bg-primary-container h-4 rounded-full"></span>
+<span class="w-1 bg-primary-container h-5 rounded-full"></span>
+<span class="w-1 bg-primary h-3 rounded-full"></span>
+<span class="w-1 bg-primary h-6 rounded-full"></span>
+<span class="w-1 bg-primary-container h-4 rounded-full"></span>
+<span class="w-1 bg-outline-variant h-2 rounded-full"></span>
+<span class="w-1 bg-outline-variant h-5 rounded-full"></span>
+<span class="w-1 bg-outline-variant h-3 rounded-full"></span>
+<span class="w-1 bg-outline-variant h-1 rounded-full"></span>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section class="section-block"><div class="section-heading"><h2>Разделы сайта</h2><p>Выберите нужный формат материала</p></div>
-<div class="category-grid">
-<a class="category-item" href="pages/images.html"><span class="category-icon">▧</span><strong>Изображения</strong><span>Фото и иллюстрации</span></a>
-<a class="category-item" href="pages/videos.html"><span class="category-icon">▶</span><strong>Видео</strong><span>Обучение и развлечения</span></a>
-<a class="category-item" href="pages/audio.html"><span class="category-icon">♫</span><strong>Аудио</strong><span>Музыка и записи</span></a>
-</div></section>
-<section class="section-block"><div class="section-heading section-heading--row"><div><h2>Примеры материалов</h2><p>Оформление карточек для будущей галереи</p></div><a class="text-link" href="pages/gallery.html">Все материалы →</a></div><div class="card-grid"><article class="media-card">
-  <a class="card-image card-image--nature" href="pages/images.html" aria-label="Открыть раздел изображение"><span>◈</span></a>
-  <div class="card-content">
-    <div class="card-details"><span>Изображение</span><span>Природа</span></div>
-    <h3>Горный пейзаж</h3>
-    <p>Автор: Алексей</p>
-  </div>
+<!-- Popular Categories Section -->
+<section class="w-full bg-surface-container-low/60 py-space-xl">
+<div class="max-w-[1280px] mx-auto px-margin">
+<div class="flex items-end justify-between mb-space-lg">
+<div>
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider">Каталог</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">Популярные категории</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant hidden md:block">
+          Упорядоченный архив медиафайлов любого масштаба
+        </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-space-md">
+<!-- Category 1 -->
+<a class="group flex flex-col p-5 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200" data-path="images" href="#">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed text-on-secondary-fixed-variant flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">photo_camera</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Фотографии</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">248 материалов</p>
+</a>
+<!-- Category 2 -->
+<a class="group flex flex-col p-5 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200" data-path="audio" href="#">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed-variant flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">headphones</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Музыка</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">84 трека</p>
+</a>
+<!-- Category 3 -->
+<a class="group flex flex-col p-5 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200" data-path="gallery" href="#">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed text-on-primary-fixed-variant flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">school</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Обучение</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">52 урока</p>
+</a>
+<!-- Category 4 -->
+<a class="group flex flex-col p-5 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200" data-path="videos" href="#">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">theaters</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Развлечения</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">116 клипов</p>
+</a>
+<!-- Category 5 -->
+<a class="group flex flex-col p-5 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200" data-path="gallery" href="#">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest text-secondary flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">palette</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Дизайн</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">190 ассетов</p>
+</a>
+<!-- Category 6 -->
+<a class="group flex flex-col p-5 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200" data-path="gallery" href="#">
+<div class="w-12 h-12 rounded-xl bg-surface-container text-on-surface-variant flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">grid_view</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Другое</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">64 архива</p>
+</a>
+</div>
+</div>
+</section>
+<!-- New Assets Section -->
+<section class="w-full max-w-[1280px] mx-auto px-margin py-space-xl">
+<div class="flex items-center justify-between mb-space-lg">
+<div class="flex items-baseline gap-3">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Новые материалы</h2>
+<span class="font-body-sm text-body-sm text-outline hidden sm:inline">Свежие публикации сообщества</span>
+</div>
+<a class="inline-flex items-center gap-1 font-label-lg text-label-lg text-primary hover:text-primary-container transition-colors" data-path="gallery" href="#">
+<span>Смотреть все</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+<!-- 6 Card Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+<!-- Card 1 (Photo) -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" data-media-preview src="/assets/media/media-032.jpg"/>
+<span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-caps text-label-caps flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[13px]">image</span>
+<span>ФОТО</span>
+</span>
+<span class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-on-surface/80 text-surface-container-lowest font-label-caps text-label-caps">
+            6.4 МБ
+          </span>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-label-caps text-label-caps text-secondary uppercase font-semibold">Фотографии</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-outline">2 часа назад</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-3 truncate">Горный закат в Альпах</h3>
+<div class="mt-auto pt-3 flex items-center justify-between border-t-0">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-[10px] flex items-center justify-center font-bold">
+                АВ
+              </div>
+<span class="font-body-sm text-body-sm text-on-surface truncate">Анна В.</span>
+</div>
+<button class="text-outline hover:text-primary transition-colors" title="Добавить в избранное" type="button">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+</div>
+</div>
 </article>
-<article class="media-card">
-  <a class="card-image card-image--city" href="pages/images.html" aria-label="Открыть раздел изображение"><span>▥</span></a>
-  <div class="card-content">
-    <div class="card-details"><span>Изображение</span><span>Город</span></div>
-    <h3>Вечерний город</h3>
-    <p>Автор: Мария</p>
-  </div>
+<!-- Card 2 (Video) -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container group cursor-pointer">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-018.jpg"/>
+<div class="absolute inset-0 bg-on-surface/25 flex items-center justify-center group-hover:bg-on-surface/35 transition-colors">
+<div class="w-11 h-11 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-caps text-label-caps flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[13px]">videocam</span>
+<span>ВИДЕО</span>
+</span>
+<span class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-on-surface/80 text-surface-container-lowest font-label-caps text-label-caps">
+            18:40
+          </span>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-label-caps text-label-caps text-primary uppercase font-semibold">Обучение</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-outline">Вчера</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-3 truncate">Урок по веб-анимации и Tailwind</h3>
+<div class="mt-auto pt-3 flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-caps text-[10px] flex items-center justify-center font-bold">
+                МД
+              </div>
+<span class="font-body-sm text-body-sm text-on-surface truncate">Максим Д.</span>
+</div>
+<button class="text-outline hover:text-primary transition-colors" title="Добавить в избранное" type="button">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+</div>
+</div>
 </article>
-<article class="media-card">
-  <a class="card-image card-image--water" href="pages/videos.html" aria-label="Открыть раздел видео"><span>▶</span></a>
-  <div class="card-content">
-    <div class="card-details"><span>Видео</span><span>Путешествия</span></div>
-    <h3>Путешествие к морю</h3>
-    <p>Автор: Ирина</p>
-  </div>
-</article></div></section></main>
-  <footer class="site-footer">
-    <div class="container footer-row"><span>© 2026 MediaGallery</span><span>Учебный проект</span></div>
-  </footer>
-</body>
-</html>
+<!-- Card 3 (Audio) -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container flex items-center justify-center p-4">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-110.jpg"/>
+<div class="absolute inset-0 bg-tertiary-container/30 backdrop-blur-xs flex items-center justify-center">
+<div class="w-11 h-11 rounded-full bg-surface-container-lowest text-tertiary flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-caps text-label-caps flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[13px]">music_note</span>
+<span>АУДИО</span>
+</span>
+<span class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-on-surface/80 text-surface-container-lowest font-label-caps text-label-caps">
+            02:45
+          </span>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-label-caps text-label-caps text-tertiary uppercase font-semibold">Музыка</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-outline">3 дня назад</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-3 truncate">Lo-Fi Chill Beats for Coding</h3>
+<div class="mt-auto pt-3 flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-6 h-6 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-[10px] flex items-center justify-center font-bold">
+                СК
+              </div>
+<span class="font-body-sm text-body-sm text-on-surface truncate">Сергей К.</span>
+</div>
+<button class="text-outline hover:text-primary transition-colors" title="Добавить в избранное" type="button">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 4 (Photo) -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" data-media-preview src="/assets/media/media-106.jpg"/>
+<span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-caps text-label-caps flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[13px]">image</span>
+<span>ФОТО</span>
+</span>
+<span class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-on-surface/80 text-surface-container-lowest font-label-caps text-label-caps">
+            4.1 МБ
+          </span>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-label-caps text-label-caps text-secondary uppercase font-semibold">Дизайн</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-outline">4 дня назад</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-3 truncate">Минимализм в городской архитектуре</h3>
+<div class="mt-auto pt-3 flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-primary font-label-caps text-[10px] flex items-center justify-center font-bold">
+                ЕС
+              </div>
+<span class="font-body-sm text-body-sm text-on-surface truncate">Елена С.</span>
+</div>
+<button class="text-outline hover:text-primary transition-colors" title="Добавить в избранное" type="button">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 5 (Video) -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container group cursor-pointer">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-039.jpg"/>
+<div class="absolute inset-0 bg-on-surface/25 flex items-center justify-center group-hover:bg-on-surface/35 transition-colors">
+<div class="w-11 h-11 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-caps text-label-caps flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[13px]">videocam</span>
+<span>ВИДЕО</span>
+</span>
+<span class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-on-surface/80 text-surface-container-lowest font-label-caps text-label-caps">
+            01:12
+          </span>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-label-caps text-label-caps text-primary uppercase font-semibold">Развлечения</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-outline">5 дней назад</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-3 truncate">Таймлапс: ночное побережье</h3>
+<div class="mt-auto pt-3 flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-6 h-6 rounded-full bg-surface-container text-on-surface font-label-caps text-[10px] flex items-center justify-center font-bold">
+                ИТ
+              </div>
+<span class="font-body-sm text-body-sm text-on-surface truncate">Иван Т.</span>
+</div>
+<button class="text-outline hover:text-primary transition-colors" title="Добавить в избранное" type="button">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 6 (Audio) -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container flex items-center justify-center p-4">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-075.jpg"/>
+<div class="absolute inset-0 bg-tertiary-container/30 backdrop-blur-xs flex items-center justify-center">
+<div class="w-11 h-11 rounded-full bg-surface-container-lowest text-tertiary flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-caps text-label-caps flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[13px]">music_note</span>
+<span>АУДИО</span>
+</span>
+<span class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-on-surface/80 text-surface-container-lowest font-label-caps text-label-caps">
+            42:10
+          </span>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-label-caps text-label-caps text-tertiary uppercase font-semibold">Обучение</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-outline">Неделю назад</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-3 truncate">Подкаст о дизайне интерфейсов #14</h3>
+<div class="mt-auto pt-3 flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-6 h-6 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-caps text-[10px] flex items-center justify-center font-bold">
+                ОП
+              </div>
+<span class="font-body-sm text-body-sm text-on-surface truncate">Ольга П.</span>
+</div>
+<button class="text-outline hover:text-primary transition-colors" title="Добавить в избранное" type="button">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Center Gallery CTA -->
+<div class="mt-space-xl flex justify-center">
+<a class="inline-flex items-center justify-center gap-2 px-8 h-12 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-lg text-label-lg transition-all shadow-sm hover:shadow" data-path="gallery" href="#">
+<span>Смотреть всю галерею</span>
+<span class="material-symbols-outlined text-[20px]">grid_view</span>
+</a>
+</div>
+</section>
+<!-- Advantages / Features Section -->
+<section class="w-full bg-surface-container-low/80 py-space-xl lg:py-24">
+<div class="max-w-[1280px] mx-auto px-margin">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider">Возможности платформы</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-2">Все ваши медиа в одном месте</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 text-balance">
+          Универсальное хранилище с набором профессиональных инструментов для фотографов, монтажеров и авторов контента.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Feature 1 -->
+<div class="flex flex-col p-8 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="w-14 h-14 rounded-2xl bg-primary-fixed text-on-primary-fixed flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[30px]">cloud_upload</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Загружайте</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Быстрая и надежная загрузка изображений без потери качества, видео высокого разрешения до 4K и многоканальных аудиофайлов любого объема.
+          </p>
+<div class="mt-6 pt-4 flex items-center gap-2 text-primary font-label-md text-label-md">
+<span>Drag & drop файлов</span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="flex flex-col p-8 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[30px]">tune</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Сортируйте</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Удобная фильтрация по форматам, пользовательским тегам, авторам и датам. Организуйте медиафайлы по папкам и тематическим альбомам в пару кликов.
+          </p>
+<div class="mt-6 pt-4 flex items-center gap-2 text-secondary font-label-md text-label-md">
+<span>Умные фильтры</span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="flex flex-col p-8 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="w-14 h-14 rounded-2xl bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[30px]">play_circle</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Просматривайте</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Встроенные быстрые плееры без сторонних плагинов прямо в браузере. Полноэкранный просмотр изображений со зумом и плавная перемотка видео.
+          </p>
+<div class="mt-6 pt-4 flex items-center gap-2 text-tertiary font-label-md text-label-md">
+<span>Аппаратное ускорение</span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Quick-Upload Banner Bar -->
+<section class="w-full max-w-[1280px] mx-auto px-margin py-space-xl">
+<div class="relative rounded-2xl bg-primary text-on-primary p-8 md:p-12 overflow-hidden shadow-xl">
+<div class="relative z-10 max-w-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-primary">Готовы расширить коллекцию?</h2>
+<p class="font-body-lg text-body-lg text-on-primary/90 mt-2">
+          Присоединяйтесь к сообществу авторов — загрузите свой первый снимок, трек или видеоклип прямо сейчас.
+        </p>
+<div class="mt-6 flex flex-wrap gap-space-md">
+<a class="inline-flex items-center gap-2 px-6 h-12 rounded-xl bg-surface-container-lowest hover:bg-surface-container text-primary font-label-lg text-label-lg transition-colors shadow" data-path="add-asset" href="#">
+<span class="material-symbols-outlined text-[20px]">upload_file</span>
+<span>Загрузить медиа</span>
+</a>
+<a class="inline-flex items-center gap-2 px-6 h-12 rounded-xl bg-primary-container hover:bg-primary-fixed-dim text-on-primary font-label-lg text-label-lg transition-colors" data-path="about" href="#">
+<span>Подробнее о форматах</span>
+</a>
+</div>
+</div>
+<!-- Ambient decorative SVG graphic behind banner -->
+<svg class="absolute right-0 bottom-0 top-0 h-full w-1/2 opacity-15 pointer-events-none hidden md:block" fill="none" viewbox="0 0 400 400">
+<circle cx="200" cy="200" r="160" stroke="currentColor" stroke-dasharray="20 10" stroke-width="32"></circle>
+<circle cx="200" cy="200" r="100" stroke="currentColor" stroke-width="24"></circle>
+<circle cx="200" cy="200" fill="currentColor" r="40"></circle>
+</svg>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-space-xl mt-auto"><div class="max-w-[1280px] mx-auto px-margin flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" data-path="gallery" href="#">Категории</a><a class="hover:text-primary transition-colors" data-path="about" href="#">О проекте</a><a class="hover:text-primary transition-colors" data-path="help" href="#">Помощь</a><a class="hover:text-primary transition-colors" data-path="api-docs" href="#">API</a></div><div class="font-body-sm text-body-sm text-outline text-center md:text-right">© 2026 MediaGallery. Учебный проект.</div></div></footer></div><div class="mobile-view bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter-mobile flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #4f46e5
+- Font: inter
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="/assets/media/logo.svg"/><div class="flex flex-col"><span class="font-title-md text-title-md text-on-surface leading-none">MediaGallery</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Главная</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Поиск" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[22px]">search</span></button><button aria-label="Меню" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[22px]">menu</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Hero Section -->
+<section class="flex flex-col px-gutter-mobile pt-space-md pb-space-lg">
+<!-- Badge -->
+<div class="inline-flex items-center gap-1.5 self-start px-3 py-1 rounded-full bg-surface-container-high text-primary mb-space-sm shadow-sm">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-caps text-label-caps tracking-wider uppercase">Единое медиапространство</span>
+</div>
+<!-- Title & Subtitle -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-space-xs tracking-tight">
+      Храните и делитесь любимыми материалами
+    </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+      Изображения, видео и аудио в одной удобной галерее со сверхбыстрым доступом.
+    </p>
+<!-- Quick Action Buttons -->
+<div class="flex flex-col gap-space-xs sm:flex-row w-full mb-space-lg">
+<a class="w-full flex items-center justify-center gap-2 h-12 rounded-xl bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md active:scale-[0.98] transition-all" data-path="galereya" href="#">
+<span class="material-symbols-outlined text-[20px]">photo_library</span>
+<span>Открыть галерею</span>
+</a>
+<a class="w-full flex items-center justify-center gap-2 h-12 rounded-xl bg-surface-container-lowest text-on-surface font-label-lg text-label-lg shadow-sm active:scale-[0.98] transition-all" data-path="dobavlenie-materiala" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary">add_circle</span>
+<span>Добавить материал</span>
+</a>
+</div>
+<!-- Quick Stats Metric Pills -->
+<div class="grid grid-cols-3 gap-2 w-full">
+<div class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container-lowest shadow-sm">
+<span class="font-headline-sm text-headline-sm text-primary">12K+</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant text-center">Файлов</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container-lowest shadow-sm">
+<span class="font-headline-sm text-headline-sm text-secondary">4K HDR</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant text-center">Качество</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container-lowest shadow-sm">
+<span class="font-headline-sm text-headline-sm text-tertiary">0 сек</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant text-center">Задержка</span>
+</div>
+</div>
+</section>
+<!-- Format Teasers Carousel -->
+<section class="flex flex-col mb-space-lg">
+<div class="flex items-center justify-between px-gutter-mobile mb-space-xs">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Форматы медиа</span>
+<span class="font-body-sm text-body-sm text-primary">Свайп влево →</span>
+</div>
+<div class="flex overflow-x-auto gap-space-sm px-gutter-mobile pb-2 snap-x snap-mandatory">
+<!-- Card 1: Alpine Photo -->
+<div class="snap-start shrink-0 w-[240px] rounded-xl overflow-hidden bg-surface-container-lowest shadow-md flex flex-col">
+<div class="relative h-32 w-full">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-042.jpg"/>
+<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps">ФОТО</span>
+</div>
+<div class="p-3 flex flex-col">
+<span class="font-title-md text-title-md text-on-surface truncate">Альпийские высоты</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">3840×2160 • 14.8 MB</span>
+</div>
+</div>
+<!-- Card 2: 4K Video -->
+<div class="snap-start shrink-0 w-[240px] rounded-xl overflow-hidden bg-surface-container-lowest shadow-md flex flex-col">
+<div class="relative h-32 w-full">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-086.jpg"/>
+<div class="absolute inset-0 bg-inverse-surface/30 flex items-center justify-center">
+<button aria-label="Воспроизвести" class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-caps text-label-caps">ВИДЕО</span>
+<span class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-label-caps text-label-caps">08:24</span>
+</div>
+<div class="p-3 flex flex-col">
+<span class="font-title-md text-title-md text-on-surface truncate">Огни ночного мегаполиса</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">4K 60fps • 420 MB</span>
+</div>
+</div>
+<!-- Card 3: Audio with Waveform -->
+<div class="snap-start shrink-0 w-[240px] rounded-xl overflow-hidden bg-surface-container-lowest shadow-md flex flex-col">
+<div class="relative h-32 w-full bg-gradient-to-tr from-tertiary-container via-primary-container to-secondary flex flex-col justify-between p-3">
+<div class="flex justify-between items-center">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-caps text-label-caps">АУДИО</span>
+<span class="font-label-caps text-label-caps text-on-primary/90">03:42</span>
+</div>
+<!-- Animated-style static wave SVG -->
+<div class="flex items-end justify-between gap-1 h-12 w-full px-1">
+<div class="w-1.5 h-4 bg-on-primary rounded-full opacity-80"></div>
+<div class="w-1.5 h-8 bg-on-primary rounded-full opacity-90"></div>
+<div class="w-1.5 h-12 bg-on-primary rounded-full"></div>
+<div class="w-1.5 h-7 bg-on-primary rounded-full opacity-90"></div>
+<div class="w-1.5 h-10 bg-on-primary rounded-full"></div>
+<div class="w-1.5 h-5 bg-on-primary rounded-full opacity-70"></div>
+<div class="w-1.5 h-9 bg-on-primary rounded-full opacity-90"></div>
+<div class="w-1.5 h-11 bg-on-primary rounded-full"></div>
+<div class="w-1.5 h-6 bg-on-primary rounded-full opacity-80"></div>
+<div class="w-1.5 h-3 bg-on-primary rounded-full opacity-60"></div>
+</div>
+</div>
+<div class="p-3 flex items-center justify-between">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-title-md text-title-md text-on-surface truncate">Chillstep Odyssey</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Lossless FLAC</span>
+</div>
+<button aria-label="Слушать" class="w-9 h-9 shrink-0 rounded-full bg-surface-container-high text-primary flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular Categories -->
+<section class="flex flex-col px-gutter-mobile mb-space-lg">
+<div class="flex items-center justify-between mb-space-sm">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Популярные категории</h2>
+<a class="font-label-lg text-label-lg text-primary flex items-center gap-0.5" href="#">
+        Все <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Cat 1 -->
+<a class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-sm active:bg-surface-container-high transition-colors" href="#">
+<div class="w-11 h-11 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed-variant shrink-0">
+<span class="material-symbols-outlined text-[22px]">photo_camera</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface truncate">Фотографии</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">5 420 шт.</span>
+</div>
+</a>
+<!-- Cat 2 -->
+<a class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-sm active:bg-surface-container-high transition-colors" href="#">
+<div class="w-11 h-11 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant shrink-0">
+<span class="material-symbols-outlined text-[22px]">headphones</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface truncate">Музыка</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1 890 треков</span>
+</div>
+</a>
+<!-- Cat 3 -->
+<a class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-sm active:bg-surface-container-high transition-colors" href="#">
+<div class="w-11 h-11 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant shrink-0">
+<span class="material-symbols-outlined text-[22px]">school</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface truncate">Обучение</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">930 лекций</span>
+</div>
+</a>
+<!-- Cat 4 -->
+<a class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-sm active:bg-surface-container-high transition-colors" href="#">
+<div class="w-11 h-11 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0">
+<span class="material-symbols-outlined text-[22px]">smart_display</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface truncate">Развлечения</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2 310 видео</span>
+</div>
+</a>
+<!-- Cat 5 -->
+<a class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-sm active:bg-surface-container-high transition-colors" href="#">
+<div class="w-11 h-11 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[22px]">palette</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface truncate">Дизайн</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1 140 ассетов</span>
+</div>
+</a>
+<!-- Cat 6 -->
+<a class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-sm active:bg-surface-container-high transition-colors" href="#">
+<div class="w-11 h-11 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined text-[22px]">folder_special</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface truncate">Другое</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">615 файлов</span>
+</div>
+</a>
+</div>
+</section>
+<!-- New Materials Section (Vertical Feed) -->
+<section class="flex flex-col px-gutter-mobile mb-space-lg">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Новые материалы</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-caps text-label-caps text-primary">Live</span>
+</div>
+<a class="font-label-lg text-label-lg text-primary" data-path="galereya" href="#">Все (342)</a>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- 1. Photo Card -->
+<div class="w-full rounded-2xl overflow-hidden bg-surface-container-lowest shadow-md flex flex-col">
+<div class="relative w-full aspect-[16/10]">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-100.jpg"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps shadow-sm">ФОТО</span>
+<span class="px-2.5 py-1 rounded-full bg-inverse-surface/80 text-inverse-on-surface font-label-caps text-label-caps backdrop-blur-sm">4096×2160</span>
+</div>
+<button aria-label="В избранное" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface/80 backdrop-blur-md text-on-surface flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-4 flex flex-col">
+<h3 class="font-title-md text-title-md text-on-surface mb-1">Полярное сияние над Тромсё</h3>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-label-md text-label-md font-bold">
+                АН
+              </div>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Алексей Новиков</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Сегодня, 14:20</span>
+</div>
+</div>
+</div>
+<!-- 2. Video Card -->
+<div class="w-full rounded-2xl overflow-hidden bg-surface-container-lowest shadow-md flex flex-col">
+<div class="relative w-full aspect-[16/9]">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-030.jpg"/>
+<!-- Play Overlay -->
+<div class="absolute inset-0 bg-inverse-surface/40 flex items-center justify-center">
+<button aria-label="Воспроизвести видео" class="w-14 h-14 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-xl active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[32px] ml-1" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-caps text-label-caps shadow-sm">ВИДЕО</span>
+<span class="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-inverse-surface/90 text-inverse-on-surface font-label-caps text-label-caps backdrop-blur-sm">18:40</span>
+</div>
+<div class="p-4 flex flex-col">
+<h3 class="font-title-md text-title-md text-on-surface mb-1">Океанический бриз: Вулканические острова</h3>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-label-md text-label-md font-bold">
+                ЕВ
+              </div>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Елена Васильева</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Вчера, 19:05</span>
+</div>
+</div>
+</div>
+<!-- 3. Audio Card -->
+<div class="w-full rounded-2xl overflow-hidden bg-surface-container-lowest shadow-md flex flex-col">
+<div class="relative w-full p-5 bg-gradient-to-r from-tertiary via-tertiary-container to-primary flex flex-col justify-between min-h-[140px]">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-caps text-label-caps">АУДИО</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/20 backdrop-blur-md text-on-primary font-label-caps text-label-caps">02:45</span>
+</div>
+<div class="flex items-center justify-between mt-3">
+<div class="flex items-center gap-3">
+<button aria-label="Слушать аудио" class="w-12 h-12 rounded-full bg-on-primary text-tertiary flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<div class="flex flex-col text-on-primary">
+<span class="font-title-md text-title-md leading-tight text-on-primary">Deep Focus Studio</span>
+<span class="font-body-sm text-body-sm text-on-primary/80">Ambient Synth • 320 kbps</span>
+</div>
+</div>
+<!-- Mini animated waveform graphic -->
+<div class="flex items-end gap-1 h-8">
+<div class="w-1 h-3 bg-on-primary rounded-full animate-pulse"></div>
+<div class="w-1 h-6 bg-on-primary rounded-full"></div>
+<div class="w-1 h-8 bg-on-primary rounded-full"></div>
+<div class="w-1 h-5 bg-on-primary rounded-full animate-pulse"></div>
+<div class="w-1 h-2 bg-on-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-label-md text-label-md font-bold">
+              MS
+            </div>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Марк Соколов</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2 дня назад</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Advantages Block -->
+<section class="flex flex-col px-gutter-mobile mb-space-lg">
+<div class="p-space-md rounded-2xl bg-surface-container-low shadow-sm flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs text-center">
+        Все ваши медиа в одном месте
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center mb-space-md">
+        Современные инструменты для удобной работы с любыми форматами файлов
+      </p>
+<div class="flex flex-col gap-2.5">
+<!-- Advantage 1 -->
+<div class="flex items-start gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">cloud_upload</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface">Загружайте моментально</span>
+<span class="material-symbols-outlined text-[18px] text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Поддержка drag-and-drop, пакетного импорта и RAW форматов до 5 ГБ на файл.</span>
+</div>
+</div>
+<!-- Advantage 2 -->
+<div class="flex items-start gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface">Сортируйте с лёгкостью</span>
+<span class="material-symbols-outlined text-[18px] text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Умные коллекции по геолокации, тегам, типам кодеков и авто-распознаванию.</span>
+</div>
+</div>
+<!-- Advantage 3 -->
+<div class="flex items-start gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface">Просматривайте без задержек</span>
+<span class="material-symbols-outlined text-[18px] text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Адаптивный встроенный плеер и мгновенное масштабирование фотографий.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="flex flex-col px-gutter-mobile mb-space-lg">
+<div class="relative overflow-hidden p-6 rounded-2xl bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-lg flex flex-col items-center text-center">
+<!-- Decorative background icon -->
+<span class="material-symbols-outlined absolute -right-6 -bottom-6 text-[120px] text-on-primary opacity-10 pointer-events-none">upload_file</span>
+<div class="w-12 h-12 rounded-full bg-on-primary/10 flex items-center justify-center mb-space-sm backdrop-blur-sm">
+<span class="material-symbols-outlined text-[28px] text-on-primary">cloud_done</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-primary mb-space-xs">
+        Готовы упорядочить ваши файлы?
+      </h2>
+<p class="font-body-md text-body-md text-on-primary-container mb-space-md max-w-xs">
+        Создайте первую коллекцию прямо сейчас без ограничений по формату.
+      </p>
+<a class="w-full h-12 flex items-center justify-center gap-2 rounded-xl bg-surface-container-lowest text-primary font-label-lg text-label-lg shadow-md active:scale-[0.98] transition-transform" data-path="dobavlenie-materiala" href="#">
+<span class="material-symbols-outlined text-[20px]">upload</span>
+<span>Загрузить медиа</span>
+</a>
+</div>
+</section>
+</div>
+<script>
+  // Simple micro-interaction for touch feedback and category selection
+  document.querySelectorAll('button, a').forEach(el => {
+    el.addEventListener('touchstart', () => {}, {passive: true});
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary font-title-md"><div class="flex items-center justify-around h-16 px-gutter-mobile"><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors" data-path="glavnaya" href="#"><span class="material-symbols-outlined text-[24px]">home</span><span class="font-label-md text-label-md mt-0.5">Главная</span></a><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors" data-path="galereya" href="#"><span class="material-symbols-outlined text-[24px]">photo_library</span><span class="font-label-md text-label-md mt-0.5">Галерея</span></a><a class="flex items-center justify-center w-12 h-12 -mt-4 bg-primary-container text-on-primary rounded-full shadow-[0_4px_12px_rgba(79,70,229,0.35)] active:scale-95 transition-transform" data-path="dobavlenie-materiala" href="#"><span class="material-symbols-outlined text-[28px]">add</span></a><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors" data-path="lichnyy-kabinet" href="#"><span class="material-symbols-outlined text-[24px]">person</span><span class="font-label-md text-label-md mt-0.5">Кабинет</span></a></div></nav></div><script src="assets/js/route-adapter.js?v=20261008m6"></script><script src="assets/js/brand-normalizer.js?v=20261007m2"></script><script src="assets/js/card-normalizer.js?v=20261008m12"></script><script src="assets/js/section-variant.js?v=20261008m12"></script><script src="assets/js/api-client.js?v=20261008m10"></script><script src="assets/js/catalog-api.js?v=20261008m10"></script><script src="assets/js/auth-pages.js?v=20261007m2"></script><script src="assets/js/profile-api.js?v=20261007m2"></script><script src="assets/js/upload-api.js?v=20261007m2"></script><script src="assets/js/detail-admin-api.js?v=20261007m2"></script><script>document.documentElement.classList.remove("mg-preinit");</script></body></html>

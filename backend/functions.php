@@ -42,10 +42,12 @@ function requireUser(PDO $pdo): array {
 
 function materialSelect(): string {
     return "
-        SELECT m.id, m.title, m.description, m.type, m.category_id,
-               m.file_path, m.source_url, m.created_at, m.author_id,
-               c.name AS category_name,
-               u.name AS author_name, u.username AS author_username
+        SELECT
+            m.*,
+            c.name AS category_name,
+            c.slug AS category_slug,
+            u.name AS author_name,
+            u.username AS author_username
         FROM materials m
         JOIN categories c ON c.id = m.category_id
         JOIN users u ON u.id = m.author_id
@@ -71,7 +73,12 @@ function materialToJson(array $row): array {
 }
 
 function getMaterial(PDO $pdo, int $id): ?array {
-    $stmt = $pdo->prepare(materialSelect() . ' WHERE m.id = ? LIMIT 1');
+    $sql = materialSelect() . "
+        WHERE m.id = ?
+        LIMIT 1
+    ";
+
+    $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $row = $stmt->fetch();
 
@@ -79,11 +86,28 @@ function getMaterial(PDO $pdo, int $id): ?array {
 }
 
 function getCategoryId(PDO $pdo, string $value): int {
-    $stmt = $pdo->prepare('SELECT id FROM categories WHERE name = ? OR id = ? LIMIT 1');
-    $stmt->execute([$value, ctype_digit($value) ? (int)$value : 0]);
+    $value = trim($value);
+
+    if (ctype_digit($value)) {
+        $stmt = $pdo->prepare('SELECT id FROM categories WHERE id = ?');
+        $stmt->execute([(int)$value]);
+        $row = $stmt->fetch();
+
+        if ($row) {
+            return (int)$row['id'];
+        }
+    }
+
+    $stmt = $pdo->prepare('SELECT id FROM categories WHERE name = ? OR slug = ? LIMIT 1');
+    $stmt->execute([$value, $value]);
     $row = $stmt->fetch();
 
-    return $row ? (int)$row['id'] : 0;
+    if ($row) {
+        return (int)$row['id'];
+    }
+
+    $row = $pdo->query("SELECT id FROM categories WHERE slug = 'other' LIMIT 1")->fetch();
+    return (int)$row['id'];
 }
 
 function validHttpUrl(string $url): ?string {

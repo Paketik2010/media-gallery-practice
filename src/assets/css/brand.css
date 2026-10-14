@@ -1,0 +1,19 @@
+@import url("./mobile-polish.css?v=20261008m12");
+
+.mg-brand-text {
+  display: inline-flex !important;
+  align-items: center;
+  color: #0b1c30 !important;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 19px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.02em !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 680px) {
+  .mg-brand-text {
+    font-size: 17px !important;
+  }
+}

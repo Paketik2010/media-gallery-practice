@@ -1,8 +1,11 @@
+README.md
+node_modules/
 .env
-*.log
-.vscode/
-.idea/
-Thumbs.db
-.DS_Store
+.env.*
+!.env.example
 src/uploads/*
 !src/uploads/.gitkeep
+!src/uploads/.htaccess
+*.log
+.DS_Store
+Thumbs.db

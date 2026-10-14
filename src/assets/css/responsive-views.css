@@ -1,0 +1,14 @@
+html, body { margin: 0; padding: 0; width: 100%; min-height: 100%; }
+body { overflow-x: hidden; background: #f8f9ff; }
+
+.desktop-view { display: flex; flex-direction: column; min-height: 100vh; }
+.mobile-view { display: none; min-height: 100vh; }
+
+@media (max-width: 680px) {
+  .desktop-view { display: none !important; }
+  .mobile-view { display: flex; flex-direction: column; min-height: 100vh; }
+}
+
+@media (min-width: 681px) {
+  .mobile-view { display: none !important; }
+}

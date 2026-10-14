@@ -1,59 +1,852 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MediaGallery — учебный проект мультимедийной галереи">
-  <title>Личный кабинет — MediaGallery</title>
-  <link rel="icon" type="image/svg+xml" href="../assets/media/favicon.svg">
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <script src="../assets/js/main.js" defer></script>
-  <script src="../assets/js/week2.js" defer></script>
-</head>
-<body data-week2="profile">
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="../index.html"><span class="brand-icon">▧</span> MediaGallery</a>
-      <nav class="desktop-menu" aria-label="Основное меню">
-        <a href="../index.html">Главная</a>
-<a href="../pages/gallery.html">Галерея</a>
-<a href="../pages/images.html">Изображения</a>
-<a href="../pages/videos.html">Видео</a>
-<a href="../pages/audio.html">Аудио</a>
-      </nav>
-      <div class="header-actions">
-        <a class="header-link" href="../pages/search.html">Поиск</a>
-        <a class="button button--outline header-login" href="../pages/login.html">Войти</a>
-        <button class="menu-toggle" type="button" data-menu-toggle aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">☰</button>
-      </div>
-    </div>
-    <nav id="mobile-menu" class="mobile-menu container" aria-label="Мобильное меню" hidden>
-      <a href="../index.html">Главная</a>
-<a href="../pages/gallery.html">Галерея</a>
-<a href="../pages/images.html">Изображения</a>
-<a href="../pages/videos.html">Видео</a>
-<a href="../pages/audio.html">Аудио</a>
-<a href="../pages/search.html">Поиск</a>
-<a href="../pages/login.html">Вход</a>
-<a href="../pages/register.html">Регистрация</a>
-<a href="../pages/profile.html" class="active" aria-current="page">Личный кабинет</a>
-<a href="../pages/upload.html">Добавить материал</a>
-    </nav>
-  </header>
-  <main class="container">
-  <section class="page-heading"><span class="eyebrow">Мультимедийная галерея</span><h1>Личный кабинет</h1><p>Данные аккаунта и добавленные материалы.</p></section>
-  <section id="profile-info" class="profile-panel">
-    <div id="profile-avatar" class="profile-avatar">?</div>
-    <div><h2 id="profile-name">Загрузка...</h2><p id="profile-data"></p></div>
-    <button id="logout-button" class="button button--outline" type="button">Выйти</button>
-  </section>
-  <section class="section-block">
-    <div class="section-heading section-heading--row"><h2>Мои материалы</h2><a class="text-link" href="upload.html">Добавить материал →</a></div>
-    <div id="my-materials">Загрузка...</div>
-  </section>
-</main>
-  <footer class="site-footer">
-    <div class="container footer-row"><span>© 2026 MediaGallery</span><span>Учебный проект</span></div>
-  </footer>
-</body>
-</html>
+<!DOCTYPE html><html lang="ru"><head><script>document.documentElement.classList.add("mg-preinit");</script><style>html.mg-preinit .desktop-view,html.mg-preinit .mobile-view{visibility:hidden!important}</style><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed": "#0f0069", "on-primary-fixed-variant": "#3323cc", "background": "#f8f9ff", "surface-container-highest": "#d3e4fe", "error-container": "#ffdad6", "on-secondary-container": "#004666", "on-secondary-fixed-variant": "#004c6e", "surface-container-low": "#eff4ff", "inverse-on-surface": "#eaf1ff", "on-secondary-fixed": "#001e2f", "on-surface-variant": "#464555", "on-tertiary-fixed": "#23005c", "primary-fixed-dim": "#c3c0ff", "secondary-fixed": "#c9e6ff", "surface-container-high": "#dce9ff", "on-tertiary-fixed-variant": "#5516be", "tertiary-fixed": "#e9ddff", "on-error-container": "#93000a", "surface-tint": "#4d44e3", "secondary": "#006591", "surface-container": "#e5eeff", "tertiary": "#571ac0", "tertiary-fixed-dim": "#d0bcff", "outline": "#777587", "surface-variant": "#d3e4fe", "primary": "#3525cd", "on-primary": "#ffffff", "on-surface": "#0b1c30", "inverse-primary": "#c3c0ff", "surface-bright": "#f8f9ff", "primary-fixed": "#e2dfff", "on-tertiary": "#ffffff", "inverse-surface": "#213145", "surface-dim": "#cbdbf5", "outline-variant": "#c7c4d8", "on-primary-container": "#dad7ff", "error": "#ba1a1a", "primary-container": "#4f46e5", "on-tertiary-container": "#e3d5ff", "tertiary-container": "#6f3dd9", "secondary-container": "#39b8fd", "surface": "#f8f9ff", "on-secondary": "#ffffff", "on-error": "#ffffff", "on-background": "#0b1c30", "secondary-fixed-dim": "#89ceff", "surface-container-lowest": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-mobile": "1rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "margin": "2rem", "space-xs": "0.25rem", "space-md": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-xl": "2rem" }, "fontFamily": { "headline-lg-mobile": ["Inter"], "label-md": ["Inter"], "body-sm": ["Inter"], "body-lg": ["Inter"], "title-md": ["Inter"], "headline-md": ["Inter"], "headline-sm": ["Inter"], "label-caps": ["Inter"], "display": ["Inter"], "label-lg": ["Inter"], "body-md": ["Inter"], "headline-lg": ["Inter"] }, "fontSize": { "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }], "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };</script><style media="(max-width: 680px)">@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#f8f9ff;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style media="(max-width: 680px)">
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style><link rel="stylesheet" href="../assets/css/responsive-views.css?v=20261007m2"><link rel="stylesheet" href="../assets/css/unified-cards.css?v=20261007m2"><link rel="stylesheet" href="../assets/css/unified-filters.css?v=20261007m2"><link rel="stylesheet" href="../assets/css/brand.css?v=20261008m12"></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><div class="desktop-view bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="max-w-[1280px] mx-auto px-margin h-16 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm" data-path="glavnaya-stranitsa" href="#"><img alt="MediaGallery Logo" class="h-8 w-auto object-contain" src="/assets/media/logo.svg"/><span class="font-title-md text-title-md text-on-surface tracking-tight">MediaGallery</span></a><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-title-md rounded-lg"><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="glavnaya-stranitsa" href="#">Главная</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="obshchaya-galereya" href="#">Галерея</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="dobavlenie-materiala" href="#">Добавить материал</a></nav></div><div class="flex items-center gap-space-sm"><div class="relative hidden sm:block w-64 md:w-72"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px] pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Поиск по названию..." type="text"/></div><a class="inline-flex items-center gap-1.5 h-10 px-space-md rounded-xl bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg transition-colors shadow-sm shrink-0" data-path="dobavlenie-materiala" href="#"><span class="material-symbols-outlined text-[18px]">add</span><span class="hidden md:inline">Добавить материал</span></a><div class="relative group shrink-0"><button class="flex items-center gap-space-xs p-1 rounded-full hover:bg-surface-container transition-colors" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="/assets/media/media-080.jpg"/><span class="hidden xl:inline-block font-label-md text-label-md text-on-surface font-medium max-w-[120px] truncate">Алексей Смирнов</span><span class="material-symbols-outlined text-outline text-[18px]">expand_more</span></button><div class="absolute right-0 top-full mt-2 w-56 bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.08)] border border-outline-variant/30 py-space-xs opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50"><div class="px-space-md py-space-xs border-b border-outline-variant/20 mb-space-xs"><p class="font-label-md text-label-md text-on-surface font-semibold">Алексей Смирнов</p><p class="font-body-sm text-body-sm text-outline truncate">alex.smirnov@example.com</p></div><a class="flex items-center gap-space-sm px-space-md py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm transition-colors" data-path="lichnyy-kabinet" href="#"><span class="material-symbols-outlined text-[18px]">person</span>Личный кабинет</a><a class="flex items-center gap-space-sm px-space-md py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm transition-colors" data-path="dobavlenie-materiala" href="#"><span class="material-symbols-outlined text-[18px]">add_circle</span>Добавить материал</a><div class="my-space-xs border-t border-outline-variant/20"></div><a class="flex items-center gap-space-sm px-space-md py-space-xs text-error hover:bg-error-container/40 font-body-sm text-body-sm transition-colors" data-path="glavnaya-stranitsa" href="#"><span class="material-symbols-outlined text-[18px]">logout</span>Выйти</a></div></div></div></div></header><main class="flex-1 w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Subtle decorative ambient glow -->
+<div class="relative w-full max-w-[1280px] mx-auto px-margin pt-space-lg pb-space-xl overflow-hidden">
+<div class="absolute -top-24 right-10 w-96 h-96 bg-primary-container/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-80 -left-20 w-80 h-80 bg-secondary-container/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- 1. Header Profile Section -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm mb-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<!-- Profile info group -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-lg">
+<div class="relative shrink-0">
+<img class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover shadow-sm" data-media-preview src="/assets/media/media-079.jpg"/>
+
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Алексей Смирнов</h1>
+<span class="bg-surface-container-high text-on-surface-variant font-label-md text-label-md px-2.5 py-0.5 rounded-full font-medium">@alex_smirnov</span>
+</div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-4 text-on-surface-variant font-body-sm text-body-sm mt-1">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">mail</span>
+                alexey.smirnov@example.com
+              </span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">calendar_today</span>
+                На платформе с 14 января 2026 г.
+              </span>
+</div>
+
+</div>
+</div>
+<!-- Right Quick Upload Action -->
+<div class="flex flex-row lg:flex-col items-center lg:items-end justify-between lg:justify-center gap-3 pt-3 lg:pt-0">
+<a class="inline-flex items-center justify-center gap-2 px-space-md py-2.5 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg transition-all shadow-sm hover:shadow active:scale-98 w-full sm:w-auto" data-path="dobavlenie-materiala" href="#">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>+ Добавить материал</span>
+</a>
+<span class="font-body-sm text-body-sm text-outline hidden lg:block text-right">Хранилище заполнено на 18%</span>
+</div>
+</div>
+</section>
+<!-- 2. Statistics Grid Cards -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-lg">
+<!-- Card 1: Total Assets -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between transition-transform hover:-translate-y-0.5 duration-150">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Всего материалов</span>
+<div class="w-9 h-9 rounded-xl bg-surface-container-low text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">grid_view</span>
+</div>
+</div>
+<div class="mt-4 mb-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">12</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm ml-1.5">объектов</span>
+</div>
+<div class="w-full bg-surface-container-low rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 100%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-2">100% активности за месяц</p>
+</div>
+<!-- Card 2: Photos -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between transition-transform hover:-translate-y-0.5 duration-150">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Изображений</span>
+<div class="w-9 h-9 rounded-xl bg-secondary-fixed/50 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">photo_library</span>
+</div>
+</div>
+<div class="mt-4 mb-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">6</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm ml-1.5">фотографий</span>
+</div>
+<div class="w-full bg-surface-container-low rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 50%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-2">50% от всей галереи</p>
+</div>
+<!-- Card 3: Video -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between transition-transform hover:-translate-y-0.5 duration-150">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Видео</span>
+<div class="w-9 h-9 rounded-xl bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">movie</span>
+</div>
+</div>
+<div class="mt-4 mb-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">4</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm ml-1.5">ролика</span>
+</div>
+<div class="w-full bg-surface-container-low rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 33.3%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-2">Общая длит. 1ч 45мин</p>
+</div>
+<!-- Card 4: Audio & Storage -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between transition-transform hover:-translate-y-0.5 duration-150">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Аудио / Хранилище</span>
+<div class="w-9 h-9 rounded-xl bg-tertiary-fixed text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">graphic_eq</span>
+</div>
+</div>
+<div class="mt-4 mb-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">2</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm ml-1.5">трека</span>
+</div>
+<div class="w-full bg-surface-container-low rounded-full h-1.5 overflow-hidden">
+<div class="bg-tertiary-container h-full rounded-full" style="width: 18%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-2 flex items-center justify-between">
+<span>1.8 ГБ из 10 ГБ</span>
+<span class="font-medium text-primary">18%</span>
+</p>
+</div>
+</section>
+<!-- 3. Section "My Materials" -->
+<section class="flex flex-col gap-space-md">
+<!-- Section Header & Controls -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Мои материалы</h2>
+<span class="bg-surface-container px-2 py-0.5 rounded-full font-label-md text-label-md text-on-surface-variant font-semibold">12</span>
+</div>
+<!-- Quick Search -->
+
+</div>
+
+</div>
+<!-- Media Assets Grid (6 items) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md">
+<!-- Item 1: Video Lesson -->
+<article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-media-preview src="/assets/media/media-115.jpg"/>
+<div class="absolute top-3 left-3 flex items-center gap-1.5">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary font-label-caps text-label-caps uppercase tracking-wider font-bold shadow-sm">Видео</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-caps text-label-caps">18:42</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-label-caps text-label-caps font-semibold">Публичный</span>
+</div>
+<div class="absolute inset-0 bg-on-surface/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-md text-title-md font-semibold text-on-surface hover:text-primary transition-colors line-clamp-1">
+                  Создание адаптивных интерфейсов на HTML и CSS
+                </h3>
+<!-- Action Kebab Dropdown -->
+<div class="relative shrink-0 dropdown-menu">
+<button class="w-7 h-7 rounded-lg hover:bg-surface-container-low flex items-center justify-center text-outline hover:text-on-surface transition-colors" onclick="toggleMenu(event, 'menu-1')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-full mt-1 w-44 bg-surface-container-lowest rounded-xl shadow-lg py-1.5 z-20" id="menu-1">
+<a class="flex items-center gap-2 px-3 py-1.5 text-on-surface font-body-sm text-body-sm hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] text-outline">visibility</span> Открыть
+                    </a>
+<a class="flex items-center gap-2 px-3 py-1.5 text-on-surface font-body-sm text-body-sm hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] text-outline">edit</span> Редактировать
+                    </a>
+<a class="flex items-center gap-2 px-3 py-1.5 text-error font-body-sm text-body-sm hover:bg-error-container/30 transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">delete</span> Удалить
+                    </a>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Подробный разбор построения сеток и гибких компонентов с применением современных стандартов.
+              </p>
+</div>
+<div class="flex items-center justify-between pt-2 text-outline font-body-sm text-body-sm">
+<span class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">visibility</span> 1,240</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">favorite</span> 142</span>
+</span>
+<span>18 мар 2026</span>
+</div>
+</div>
+</article>
+<!-- Item 2: Photo Nature -->
+<article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-media-preview src="/assets/media/media-060.jpg"/>
+<div class="absolute top-3 left-3 flex items-center gap-1.5">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-secondary font-label-caps text-label-caps uppercase tracking-wider font-bold shadow-sm">Фото</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-caps text-label-caps">6000x4000</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-label-caps text-label-caps font-semibold">Публичный</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-md text-title-md font-semibold text-on-surface hover:text-primary transition-colors line-clamp-1">
+                  Горный рассвет в Альпах
+                </h3>
+<div class="relative shrink-0 dropdown-menu">
+<button class="w-7 h-7 rounded-lg hover:bg-surface-container-low flex items-center justify-center text-outline hover:text-on-surface transition-colors" onclick="toggleMenu(event, 'menu-2')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-full mt-1 w-44 bg-surface-container-lowest rounded-xl shadow-lg py-1.5 z-20" id="menu-2">
+<a class="flex items-center gap-2 px-3 py-1.5 text-on-surface font-body-sm text-body-sm hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] text-outline">visibility</span> Открыть
+                    </a>
+<a class="flex items-center gap-2 px-3 py-1.5 text-on-surface font-body-sm text-body-sm hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] text-outline">edit</span> Редактировать
+                    </a>
+<a class="flex items-center gap-2 px-3 py-1.5 text-error font-body-sm text-body-sm hover:bg-error-container/30 transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">delete</span> Удалить
+                    </a>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Серия пейзажных снимков высокой четкости во время утреннего восхождения в районе Церматта.
+              </p>
+</div>
+<div class="flex items-center justify-between pt-2 text-outline font-body-sm text-body-sm">
+<span class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">visibility</span> 890</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">favorite</span> 98</span>
+</span>
+<span>15 мар 2026</span>
+</div>
+</div>
+</article>
+<!-- Item 3: Audio Podcast -->
+<article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col">
+<div class="relative aspect-video w-full overflow-hidden bg-gradient-to-tr from-tertiary-container via-primary-container to-secondary-container flex items-center justify-center p-6">
+<!-- Audio graphic visualizer representation -->
+<div class="flex items-end gap-1.5 h-16 w-3/4 justify-center">
+<div class="w-1.5 bg-on-primary/60 rounded-full h-8 animate-pulse"></div>
+<div class="w-1.5 bg-on-primary/90 rounded-full h-12"></div>
+<div class="w-1.5 bg-on-primary rounded-full h-16"></div>
+<div class="w-1.5 bg-on-primary/80 rounded-full h-10"></div>
+<div class="w-1.5 bg-on-primary/70 rounded-full h-14"></div>
+<div class="w-1.5 bg-on-primary/50 rounded-full h-6"></div>
+<div class="w-1.5 bg-on-primary/90 rounded-full h-12"></div>
+<div class="w-1.5 bg-on-primary rounded-full h-16"></div>
+<div class="w-1.5 bg-on-primary/60 rounded-full h-8"></div>
+</div>
+<div class="absolute top-3 left-3 flex items-center gap-1.5">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-caps text-label-caps uppercase tracking-wider font-bold shadow-sm">Аудио</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-caps text-label-caps">04:15</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 font-label-caps text-label-caps font-semibold">Доступ по ссылке</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-primary font-label-caps text-label-caps">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">headphones</span> 320 kbps MP3</span>
+<span>12.4 МБ</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-md text-title-md font-semibold text-on-surface hover:text-primary transition-colors line-clamp-1">
+                  UI Sound Effects Pack Vol. 1
+                </h3>
+<div class="relative shrink-0 dropdown-menu">
+<button class="w-7 h-7 rounded-lg hover:bg-surface-container-low flex items-center justify-center text-outline hover:text-on-surface transition-colors" onclick="toggleMenu(event, 'menu-3')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-full mt-1 w-44 bg-surface-container-lowest rounded-xl shadow-lg py-1.5 z-20" id="menu-3">
+<a class="flex items-center gap-2 px-3 py-1.5 text-on-surface font-body-sm text-body-sm hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] text-outline">visibility</span> Открыть
+                    </a>
+<a class="flex items-center gap-2 px-3 py-1.5 text-on-surface font-body-sm text-body-sm hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] text-outline">edit</span> Редактировать
+                    </a>
+<a class="flex items-center gap-2 px-3 py-1.5 text-error font-body-sm text-body-sm hover:bg-error-container/30 transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">delete</span> Удалить
+                    </a>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Набор мягких кликов, уведомлений и тактильных переходов для мобильных приложений.
+              </p>
+</div>
+<div class="flex items-center justify-between pt-2 text-outline font-body-sm text-body-sm">
+<span class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">play_circle</span> 430</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">favorite</span> 56</span>
+</span>
+<span>11 мар 2026</span>
+</div>
+</div>
+</article>
+<!-- Item 4: Video System -->
+<article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-media-preview src="/assets/media/media-070.jpg"/>
+<div class="absolute top-3 left-3 flex items-center gap-1.5">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary font-label-caps text-label-caps uppercase tracking-wider font-bold shadow-sm">Видео</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-caps text-label-caps">32:10</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-label-caps text-label-caps font-semibold">Публичный</span>
+</div>
+<div class="absolute inset-0 bg-on-surface/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-md text-title-md font-semibold text-on-surface hover:text-primary transition-colors line-clamp-1">
+                  Архитектура дизайн-систем
+                </h3>
+<div class="relative shrink-0 dropdown-menu">
+<button class="w-7 h-7 rounded-lg hover:bg-surface-container-low flex items-center justify-center text-outline hover:text-on-surface transition-colors" onclick="toggleMenu(event, 'menu-4')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-full mt-1 w-44 bg-surface-container-lowest rounded-xl shadow-lg py-1.5 z-20" id="menu-4">
+<a class="flex items-center gap-2 px-3 py-1.5 text-on-surface font-body-sm text-body-sm hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] text-outline">visibility</span> Открыть
+                    </a>
+<a class="flex items-center gap-2 px-3 py-1.5 text-on-surface font-body-sm text-body-sm hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] text-outline">edit</span> Редактировать
+                    </a>
+<a class="flex items-center gap-2 px-3 py-1.5 text-error font-body-sm text-body-sm hover:bg-error-container/30 transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">delete</span> Удалить
+                    </a>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Методология организации дизайн-токенов, атомарных компонентов и согласования кода с макетами.
+              </p>
+</div>
+<div class="flex items-center justify-between pt-2 text-outline font-body-sm text-body-sm">
+<span class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">visibility</span> 2,150</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">favorite</span> 310</span>
+</span>
+<span>08 мар 2026</span>
+</div>
+</div>
+</article>
+<!-- Item 5: Photo Vector/Art -->
+<article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-media-preview src="/assets/media/media-104.jpg"/>
+<div class="absolute top-3 left-3 flex items-center gap-1.5">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-secondary font-label-caps text-label-caps uppercase tracking-wider font-bold shadow-sm">Фото</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-caps text-label-caps">4096x2160</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-label-caps text-label-caps font-semibold">Публичный</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-md text-title-md font-semibold text-on-surface hover:text-primary transition-colors line-clamp-1">
+                  Введение в CSS Grid и Flexbox
+                </h3>
+<div class="relative shrink-0 dropdown-menu">
+<button class="w-7 h-7 rounded-lg hover:bg-surface-container-low flex items-center justify-center text-outline hover:text-on-surface transition-colors" onclick="toggleMenu(event, 'menu-5')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-full mt-1 w-44 bg-surface-container-lowest rounded-xl shadow-lg py-1.5 z-20" id="menu-5">
+<a class="flex items-center gap-2 px-3 py-1.5 text-on-surface font-body-sm text-body-sm hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] text-outline">visibility</span> Открыть
+                    </a>
+<a class="flex items-center gap-2 px-3 py-1.5 text-on-surface font-body-sm text-body-sm hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] text-outline">edit</span> Редактировать
+                    </a>
+<a class="flex items-center gap-2 px-3 py-1.5 text-error font-body-sm text-body-sm hover:bg-error-container/30 transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">delete</span> Удалить
+                    </a>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Набор графических схем и шпаргалок для начинающих разработчиков интерфейсов.
+              </p>
+</div>
+<div class="flex items-center justify-between pt-2 text-outline font-body-sm text-body-sm">
+<span class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">visibility</span> 620</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">favorite</span> 74</span>
+</span>
+<span>03 мар 2026</span>
+</div>
+</div>
+</article>
+<!-- Item 6: Audio Chill -->
+<article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-media-preview src="/assets/media/media-092.jpg"/>
+<div class="absolute top-3 left-3 flex items-center gap-1.5">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-caps text-label-caps uppercase tracking-wider font-bold shadow-sm">Аудио</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-caps text-label-caps">02:48</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-label-caps text-label-caps font-semibold">Публичный</span>
+</div>
+<div class="absolute inset-0 bg-on-surface/20 flex items-center justify-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest text-tertiary flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-md text-title-md font-semibold text-on-surface hover:text-primary transition-colors line-clamp-1">
+                  Lo-Fi Chill Beats for Coding
+                </h3>
+<div class="relative shrink-0 dropdown-menu">
+<button class="w-7 h-7 rounded-lg hover:bg-surface-container-low flex items-center justify-center text-outline hover:text-on-surface transition-colors" onclick="toggleMenu(event, 'menu-6')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-full mt-1 w-44 bg-surface-container-lowest rounded-xl shadow-lg py-1.5 z-20" id="menu-6">
+<a class="flex items-center gap-2 px-3 py-1.5 text-on-surface font-body-sm text-body-sm hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] text-outline">visibility</span> Открыть
+                    </a>
+<a class="flex items-center gap-2 px-3 py-1.5 text-on-surface font-body-sm text-body-sm hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] text-outline">edit</span> Редактировать
+                    </a>
+<a class="flex items-center gap-2 px-3 py-1.5 text-error font-body-sm text-body-sm hover:bg-error-container/30 transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">delete</span> Удалить
+                    </a>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Расслабляющий инструментальный трек с аналоговым виниловым шумом и мягким фортепиано.
+              </p>
+</div>
+<div class="flex items-center justify-between pt-2 text-outline font-body-sm text-body-sm">
+<span class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">play_circle</span> 1,840</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">favorite</span> 249</span>
+</span>
+<span>26 фев 2026</span>
+</div>
+</div>
+</article>
+</div>
+
+</section>
+</div>
+<!-- Interactive script for kebab actions and tab switching -->
+<script>
+    function toggleMenu(event, menuId) {
+      event.stopPropagation();
+      // Close any other open menu
+      document.querySelectorAll('.dropdown-menu > div').forEach(menu => {
+        if (menu.id !== menuId) {
+          menu.classList.add('hidden');
+        }
+      });
+      const targetMenu = document.getElementById(menuId);
+      if (targetMenu) {
+        targetMenu.classList.toggle('hidden');
+      }
+    }
+
+    // Global listener to close dropdowns when clicking outside
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.dropdown-menu > div').forEach(menu => {
+        menu.classList.add('hidden');
+      });
+    });
+
+    // Simple visual tab toggle
+    const tabButtons = document.querySelectorAll('#filter-tabs button');
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => {
+          b.className = 'px-3 py-1.5 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-md text-label-md font-medium transition-colors shrink-0';
+        });
+        btn.className = 'px-3 py-1.5 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors shrink-0';
+      });
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-space-xl mt-auto"><div class="max-w-[1280px] mx-auto px-margin flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" data-path="obshchaya-galereya" href="#">Категории</a><a class="hover:text-primary transition-colors" data-path="lichnyy-kabinet" href="#">Личный кабинет</a></div><div class="font-body-sm text-body-sm text-outline text-center md:text-right">© 2026 MediaGallery. Учебный проект.</div></div></footer></div><div class="mobile-view bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter-mobile flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #4f46e5
+- Font: inter
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="/assets/media/logo.svg"/><div class="flex flex-col"><span class="font-title-md text-title-md text-on-surface leading-none">MediaGallery</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Галерея</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Поиск" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[22px]">search</span></button><button aria-label="Меню" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[22px]">menu</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Profile Header Card Section -->
+<section class="px-gutter-mobile pt-space-md pb-space-xs">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-md">
+<!-- Profile Info Top Row -->
+<div class="flex items-start gap-space-md">
+<!-- Avatar with PRO badge -->
+<div class="relative shrink-0">
+<div class="w-16 h-16 rounded-full overflow-hidden shadow-sm bg-surface-container">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-114.jpg"/>
+</div>
+<span class="absolute -bottom-1 -right-1 bg-primary text-on-primary font-label-caps text-label-caps px-1.5 py-0.5 rounded-full shadow-sm">PRO</span>
+</div>
+<!-- User Identity -->
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-space-xs">
+<h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Алексей Смирнов</h1>
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="font-label-md text-label-md text-primary truncate">@alex_smirnov</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5">alexey.smirnov@example.com</span>
+</div>
+</div>
+<!-- Registration Date & Fast Actions -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span>На платформе с 14 января 2026 г.</span>
+</div>
+<div class="flex items-center gap-space-sm pt-1">
+<button class="flex-1 h-11 bg-primary text-on-primary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-space-xs active:bg-primary-container shadow-sm transition-transform active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span>Редактировать</span>
+</button>
+<button aria-label="Поделиться" class="w-11 h-11 rounded-xl bg-surface-container-low text-on-surface flex items-center justify-center active:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+<button aria-label="Настройки аккаунта" class="w-11 h-11 rounded-xl bg-surface-container-low text-on-surface flex items-center justify-center active:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+</div>
+</div>
+<!-- Cloud Storage Metric Card -->
+<div class="bg-surface-container-low rounded-xl p-space-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">cloud</span>
+<span class="font-title-md text-title-md">Хранилище</span>
+</div>
+<span class="text-on-surface-variant font-label-caps text-label-caps">1.8 ГБ из 10 ГБ</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 18%;"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-0.5">
+<span>Заполнено на 18%</span>
+<span class="text-secondary font-label-md text-label-md">Доступно 8.2 ГБ</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Metrics Grid 2x2 -->
+<section class="px-gutter-mobile py-space-sm">
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Metric 1: Total -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between h-24">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Всего файлов</span>
+<div class="w-7 h-7 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">folder_special</span>
+</div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight">12</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Активность 100%</div>
+</div>
+</div>
+<!-- Metric 2: Images -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between h-24">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Изображения</span>
+<div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">image</span>
+</div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight">6</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">50% медиатеки</div>
+</div>
+</div>
+<!-- Metric 3: Video -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between h-24">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Видео</span>
+<div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">videocam</span>
+</div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight">4</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Длит. 1ч 45мин</div>
+</div>
+</div>
+<!-- Metric 4: Audio -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between h-24">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Аудио</span>
+<div class="w-7 h-7 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[18px]">audiotrack</span>
+</div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight">2</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">320 Кбит/с</div>
+</div>
+</div>
+</div>
+</section>
+<!-- My Media Materials Section -->
+<section class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Header with count & Add Button -->
+<div class="px-gutter-mobile flex items-center justify-between">
+<div class="flex items-baseline gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Мои материалы</h2>
+<span class="font-label-lg text-label-lg text-primary font-bold">(12)</span>
+</div>
+<button class="h-10 px-space-md bg-primary-container text-on-primary rounded-xl font-label-md text-label-md flex items-center gap-1 active:scale-95 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Добавить</span>
+</button>
+</div>
+<!-- Mobile Search Bar -->
+<div class="px-gutter-mobile">
+
+</div>
+<!-- Filter Chips Horizontal Scroll -->
+<div class="overflow-x-auto no-scrollbar px-gutter-mobile py-1 flex items-center gap-space-xs">
+<button class="shrink-0 h-9 px-space-md rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm">Все (12)</button>
+<button class="shrink-0 h-9 px-space-md rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm active:bg-surface-container transition-colors">Изображения (6)</button>
+<button class="shrink-0 h-9 px-space-md rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm active:bg-surface-container transition-colors">Видео (4)</button>
+<button class="shrink-0 h-9 px-space-md rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm active:bg-surface-container transition-colors">Аудио (2)</button>
+</div>
+<!-- Sorting & View Toggle Controls -->
+<div class="px-gutter-mobile flex items-center justify-between text-on-surface-variant pt-1">
+<div class="flex items-center gap-1">
+<span class="font-body-sm text-body-sm">Сортировка:</span>
+<button class="font-label-md text-label-md text-on-surface flex items-center gap-0.5">
+<span>Сначала новые</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button aria-label="Вид списком" class="w-8 h-8 rounded-md bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px]">view_list</span>
+</button>
+<button aria-label="Вид сеткой" class="w-8 h-8 rounded-md text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+</div>
+</div>
+<!-- Material Cards List -->
+<div class="px-gutter-mobile flex flex-col gap-space-sm pt-space-xs">
+<!-- Card 1: Video -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="relative w-full aspect-video bg-surface-container">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-117.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-between p- space-sm">
+<span class="bg-primary/90 text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full backdrop-blur-sm">Видео</span>
+<span class="bg-black/70 text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full backdrop-blur-sm">18:42</span>
+</div>
+<div class="absolute top-2 right-2">
+<span class="bg-surface-container-lowest/90 text-on-surface font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm backdrop-blur-sm">Публичный</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col gap-1.5">
+<div class="flex items-start justify-between gap-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface leading-snug line-clamp-2">Создание адаптивных интерфейсов на HTML и CSS</h3>
+<button aria-label="Действия с материалом" class="w-8 h-8 -mr-1 text-on-surface-variant rounded-full flex items-center justify-center shrink-0 active:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+              1,240
+            </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+              18 мар 2026
+            </span>
+<span class="text-secondary font-label-caps text-label-caps">MP4 • 240 МБ</span>
+</div>
+</div>
+</article>
+<!-- Card 2: Photo -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="relative w-full aspect-video bg-surface-container">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-084.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-between p-space-sm">
+<span class="bg-secondary text-on-secondary font-label-caps text-label-caps px-2 py-0.5 rounded-full backdrop-blur-sm">Фото</span>
+<span class="bg-black/70 text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full backdrop-blur-sm">6000x4000</span>
+</div>
+<div class="absolute top-2 right-2">
+<span class="bg-surface-container-lowest/90 text-on-surface font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm backdrop-blur-sm">Публичный</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col gap-1.5">
+<div class="flex items-start justify-between gap-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface leading-snug line-clamp-1">Горный рассвет в Альпах</h3>
+<button aria-label="Действия с материалом" class="w-8 h-8 -mr-1 text-on-surface-variant rounded-full flex items-center justify-center shrink-0 active:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+              890
+            </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+              15 мар 2026
+            </span>
+<span class="text-secondary font-label-caps text-label-caps">RAW • 42 МБ</span>
+</div>
+</div>
+</article>
+<!-- Card 3: Audio with Soundwave -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">graphic_eq</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="bg-tertiary text-on-tertiary font-label-caps text-label-caps px-2 py-0.5 rounded-full">Аудио</span>
+<span class="bg-surface-container-high text-on-surface font-label-caps text-label-caps px-2 py-0.5 rounded-full">Доступ по ссылке</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface truncate mt-1">UI Sound Effects Pack Vol. 1</h3>
+</div>
+</div>
+<button aria-label="Действия с материалом" class="w-8 h-8 -mr-1 text-on-surface-variant rounded-full flex items-center justify-center shrink-0 active:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<!-- Inline Audio Waveform Visualizer -->
+<div class="bg-surface-container-low rounded-xl p-space-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<button class="w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm active:scale-95 transition-transform shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- SVG Audio Bars Waveform -->
+<div class="flex-1 mx-space-sm h-7 flex items-center justify-between gap-1 overflow-hidden">
+<span class="w-1 h-3 bg-primary rounded-full"></span>
+<span class="w-1 h-5 bg-primary rounded-full"></span>
+<span class="w-1 h-6 bg-primary rounded-full"></span>
+<span class="w-1 h-4 bg-primary rounded-full"></span>
+<span class="w-1 h-7 bg-primary rounded-full"></span>
+<span class="w-1 h-5 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-3 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-6 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-4 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-5 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-2 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-5 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-4 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-3 bg-outline-variant rounded-full"></span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant shrink-0">04:15</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-0.5">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">headphones</span>
+            320 прослушиваний
+          </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+            10 мар 2026
+          </span>
+</div>
+</article>
+<!-- Card 4: Video -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="relative w-full aspect-video bg-surface-container">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-076.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-between p-space-sm">
+<span class="bg-primary/90 text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full backdrop-blur-sm">Видео</span>
+<span class="bg-black/70 text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full backdrop-blur-sm">32:10</span>
+</div>
+<div class="absolute top-2 right-2">
+<span class="bg-surface-container-lowest/90 text-on-surface font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm backdrop-blur-sm">Публичный</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col gap-1.5">
+<div class="flex items-start justify-between gap-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface leading-snug line-clamp-1">Введение в CSS Grid и Flexbox</h3>
+<button aria-label="Действия с материалом" class="w-8 h-8 -mr-1 text-on-surface-variant rounded-full flex items-center justify-center shrink-0 active:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+              2,180
+            </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+              04 мар 2026
+            </span>
+<span class="text-secondary font-label-caps text-label-caps">MP4 • 480 МБ</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Mobile Pagination & Load More -->
+<div class="px-gutter-mobile pt-space-md pb-space-lg flex flex-col items-center gap-space-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Показано 4 из 12 материалов</span>
+<button class="w-full h-12 bg-surface-container-lowest text-primary rounded-xl font-label-lg text-label-lg shadow-sm flex items-center justify-center gap-space-xs active:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+<span>Показать еще</span>
+</button>
+<!-- Numeric Mobile Pagination Arrows -->
+<div class="flex items-center gap-space-xs pt-1">
+<button aria-label="Предыдущая страница" class="w-9 h-9 rounded-lg bg-surface-container-lowest text-outline-variant flex items-center justify-center shadow-sm opacity-50 cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center shadow-sm">1</button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center justify-center shadow-sm">2</button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center justify-center shadow-sm">3</button>
+<button aria-label="Следующая страница" class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Ensure the active tab bar icon for "Кабинет" is highlighted
+  document.addEventListener("DOMContentLoaded", () => {
+    const cabinetTab = document.querySelector('nav a[data-path="lichnyy-kabinet"]');
+    if (cabinetTab) {
+      cabinetTab.classList.remove('text-on-surface-variant');
+      cabinetTab.classList.add('text-primary');
+      const icon = cabinetTab.querySelector('.material-symbols-outlined');
+      if (icon) {
+        icon.style.fontVariationSettings = "'FILL' 1";
+      }
+    }
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary font-title-md"><div class="flex items-center justify-around h-16 px-gutter-mobile"><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors" data-path="glavnaya" href="#"><span class="material-symbols-outlined text-[24px]">home</span><span class="font-label-md text-label-md mt-0.5">Главная</span></a><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors" data-path="galereya" href="#"><span class="material-symbols-outlined text-[24px]">photo_library</span><span class="font-label-md text-label-md mt-0.5">Галерея</span></a><a class="flex items-center justify-center w-12 h-12 -mt-4 bg-primary-container text-on-primary rounded-full shadow-[0_4px_12px_rgba(79,70,229,0.35)] active:scale-95 transition-transform" data-path="dobavlenie-materiala" href="#"><span class="material-symbols-outlined text-[28px]">add</span></a><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant transition-colors" data-path="lichnyy-kabinet" href="#"><span class="material-symbols-outlined text-[24px]">person</span><span class="font-label-md text-label-md mt-0.5">Кабинет</span></a></div></nav></div><script src="../assets/js/route-adapter.js?v=20261008m6"></script><script src="../assets/js/brand-normalizer.js?v=20261007m2"></script><script src="../assets/js/card-normalizer.js?v=20261008m12"></script><script src="../assets/js/section-variant.js?v=20261008m12"></script><script src="../assets/js/api-client.js?v=20261008m10"></script><script src="../assets/js/catalog-api.js?v=20261008m10"></script><script src="../assets/js/auth-pages.js?v=20261007m2"></script><script src="../assets/js/profile-api.js?v=20261007m2"></script><script src="../assets/js/upload-api.js?v=20261007m2"></script><script src="../assets/js/detail-admin-api.js?v=20261007m2"></script><script>document.documentElement.classList.remove("mg-preinit");</script></body></html>
