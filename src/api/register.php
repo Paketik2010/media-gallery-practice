@@ -33,7 +33,7 @@ if ($stmt->fetch()) {
     jsonResponse(['error' => 'Пользователь уже существует'], 409);
 }
 
-$stmt = $pdo->prepare("INSERT INTO users(name, username, email, password_hash) VALUES(?,?,?,?)");
+$stmt = $pdo->prepare("INSERT INTO users(name, username, email, password_hash, role) VALUES(?,?,?,?, 'user')");
 $stmt->execute([$name, $username, $email, password_hash($password, PASSWORD_DEFAULT)]);
 
 $_SESSION['user_id'] = (int)$pdo->lastInsertId();

@@ -1,0 +1,1034 @@
+<!DOCTYPE html><html lang="ru"><head><script>document.documentElement.classList.add("mg-preinit");</script><style>html.mg-preinit .desktop-view,html.mg-preinit .mobile-view{visibility:hidden!important}</style><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed": "#0f0069", "on-primary-fixed-variant": "#3323cc", "background": "#f8f9ff", "surface-container-highest": "#d3e4fe", "error-container": "#ffdad6", "on-secondary-container": "#004666", "on-secondary-fixed-variant": "#004c6e", "surface-container-low": "#eff4ff", "inverse-on-surface": "#eaf1ff", "on-secondary-fixed": "#001e2f", "on-surface-variant": "#464555", "on-tertiary-fixed": "#23005c", "primary-fixed-dim": "#c3c0ff", "secondary-fixed": "#c9e6ff", "surface-container-high": "#dce9ff", "on-tertiary-fixed-variant": "#5516be", "tertiary-fixed": "#e9ddff", "on-error-container": "#93000a", "surface-tint": "#4d44e3", "secondary": "#006591", "surface-container": "#e5eeff", "tertiary": "#571ac0", "tertiary-fixed-dim": "#d0bcff", "outline": "#777587", "surface-variant": "#d3e4fe", "primary": "#3525cd", "on-primary": "#ffffff", "on-surface": "#0b1c30", "inverse-primary": "#c3c0ff", "surface-bright": "#f8f9ff", "primary-fixed": "#e2dfff", "on-tertiary": "#ffffff", "inverse-surface": "#213145", "surface-dim": "#cbdbf5", "outline-variant": "#c7c4d8", "on-primary-container": "#dad7ff", "error": "#ba1a1a", "primary-container": "#4f46e5", "on-tertiary-container": "#e3d5ff", "tertiary-container": "#6f3dd9", "secondary-container": "#39b8fd", "surface": "#f8f9ff", "on-secondary": "#ffffff", "on-error": "#ffffff", "on-background": "#0b1c30", "secondary-fixed-dim": "#89ceff", "surface-container-lowest": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-mobile": "1rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "margin": "2rem", "space-xs": "0.25rem", "space-md": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-xl": "2rem" }, "fontFamily": { "headline-lg-mobile": ["Inter"], "label-md": ["Inter"], "body-sm": ["Inter"], "body-lg": ["Inter"], "title-md": ["Inter"], "headline-md": ["Inter"], "headline-sm": ["Inter"], "label-caps": ["Inter"], "display": ["Inter"], "label-lg": ["Inter"], "body-md": ["Inter"], "headline-lg": ["Inter"] }, "fontSize": { "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }], "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };</script><style media="(max-width: 680px)">@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#f8f9ff;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style media="(max-width: 680px)">
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style><link rel="stylesheet" href="../assets/css/responsive-views.css?v=20261007m2"><link rel="stylesheet" href="../assets/css/unified-cards.css?v=20261007m2"><link rel="stylesheet" href="../assets/css/unified-filters.css?v=20261007m2"><link rel="stylesheet" href="../assets/css/brand.css?v=20261008m12"></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><div class="desktop-view bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-xl border-b border-outline-variant/30"><div class="px-margin h-16 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm" data-path="panel-administratora" href="#"><img alt="MediaGallery Logo" class="h-8 w-auto object-contain" src="/assets/media/logo.svg"/><span class="font-title-md text-title-md text-on-surface tracking-tight">MediaGallery</span><span class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary font-label-caps text-label-caps uppercase">Админ</span></a></div><div class="flex items-center gap-space-md"><a class="flex items-center gap-1.5 px-space-md py-1.5 rounded-xl border border-outline-variant/40 hover:bg-surface-container font-label-lg text-label-lg text-on-surface transition-colors" data-path="glavnaya-stranitsa" href="#"><span class="material-symbols-outlined text-[18px]">arrow_back</span><span>Вернуться на сайт</span></a><div class="flex items-center gap-space-xs p-1"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="/assets/media/media-080.jpg"/><span class="hidden sm:inline-block font-label-md text-label-md text-on-surface font-medium">Алексей Смирнов</span></div></div></div></header><div class="flex flex-1 pt-16"><aside class="fixed top-16 left-0 bottom-0 w-64 bg-surface-container-lowest border-r border-outline-variant/30 flex flex-col p-space-md z-40"><div class="text-outline font-label-caps text-label-caps uppercase px-space-sm mb-space-xs">Управление</div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-title-md rounded-xl"><a class="px-space-md py-2.5 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="panel-administratora" href="#">Обзор</a><a class="px-space-md py-2.5 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="panel-administratora" href="#">Пользователи</a><a class="px-space-md py-2.5 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="panel-administratora" href="#">Материалы</a><a class="px-space-md py-2.5 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="panel-administratora" href="#">Категории</a></nav><div class="mt-auto pt-space-md border-t border-outline-variant/20 flex flex-col gap-space-xs"><a class="px-space-md py-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="lichnyy-kabinet" href="#">Мой аккаунт</a><a class="px-space-md py-2 rounded-xl text-error hover:bg-error-container/40 transition-colors" data-path="glavnaya-stranitsa" href="#">Выйти</a></div></aside><main class="flex-1 pl-64 w-full bg-surface min-h-[calc(100vh-4rem)]"><div class="flex flex-col w-full">
+<div class="p-space-lg lg:p-margin flex flex-col gap-space-xl max-w-[1400px] mx-auto w-full">
+
+<section class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container/10 text-primary font-label-caps text-label-caps uppercase tracking-wider">Система управления</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">Мониторинг активен</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Панель администратора</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          Общая статистика платформы, мониторинг пользовательской активности и очереди модерации цифрового контента
+        </p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="relative inline-flex items-center">
+<button class="h-10 px-space-md bg-surface-container-lowest rounded-xl shadow-sm text-on-surface font-label-lg text-label-lg flex items-center gap-2 hover:bg-surface-container transition-all" id="periodBtn">
+<span class="material-symbols-outlined text-[18px] text-outline">calendar_today</span>
+<span>Последние 30 дней</span>
+<span class="material-symbols-outlined text-[18px] text-outline">expand_more</span>
+</button>
+</div>
+<button class="h-10 px-space-md bg-surface-container-lowest rounded-xl shadow-sm text-on-surface font-label-lg text-label-lg flex items-center gap-2 hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[18px] text-secondary">file_download</span>
+<span>Экспорт отчета</span>
+</button>
+<button class="h-10 px-space-md bg-primary-container text-on-primary rounded-xl shadow-sm font-label-lg text-label-lg flex items-center gap-2 hover:opacity-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Новый ресурс</span>
+</button>
+</div>
+</section>
+
+<section class="bg-surface-container-low rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md relative overflow-hidden">
+<div class="absolute -right-10 -bottom-10 w-44 h-44 rounded-full bg-primary/5 pointer-events-none"></div>
+<div class="flex items-center gap-space-md z-10">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[26px]">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">Состояние системы: 99.98% стабильность</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Все сервисы и CDN работают штатно. <strong>3 новых медиафайла</strong> ожидают ручной верификации.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm z-10 w-full md:w-auto">
+<button class="flex-1 md:flex-initial h-9 px-space-md bg-primary text-on-primary rounded-xl font-label-md text-label-md flex items-center justify-center gap-1.5 shadow-sm hover:opacity-90 transition-opacity">
+<span>Проверить очередь (3)</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</section>
+
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-md">
+
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between gap-space-sm hover:-translate-y-0.5 transition-transform">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">Пользователи</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">group</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">1 248</span>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="flex items-center text-emerald-600 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12%
+            </span>
+<span class="font-body-sm text-body-sm text-outline">за месяц</span>
+</div>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 78%"></div>
+</div>
+</div>
+
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between gap-space-sm hover:-translate-y-0.5 transition-transform">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">Материалы</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">folder_copy</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">342</span>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="flex items-center text-emerald-600 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> +28
+            </span>
+<span class="font-body-sm text-body-sm text-outline">за неделю</span>
+</div>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-secondary h-full rounded-full" style="width: 65%"></div>
+</div>
+</div>
+
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between gap-space-sm hover:-translate-y-0.5 transition-transform">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">Изображения</span>
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">image</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">180</span>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-md text-label-md">52%</span>
+<span class="font-body-sm text-body-sm text-outline">от объема</span>
+</div>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-secondary-container h-full rounded-full" style="width: 52%"></div>
+</div>
+</div>
+
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between gap-space-sm hover:-translate-y-0.5 transition-transform">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">Видео</span>
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-[18px]">movie</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">98</span>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-md text-label-md">29%</span>
+<span class="font-body-sm text-body-sm text-outline">от объема</span>
+</div>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-primary-container h-full rounded-full" style="width: 29%"></div>
+</div>
+</div>
+
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between gap-space-sm hover:-translate-y-0.5 transition-transform">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">Аудио</span>
+<div class="w-8 h-8 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-[18px]">audiotrack</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">64</span>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-md text-label-md">19%</span>
+<span class="font-body-sm text-body-sm text-outline">от объема</span>
+</div>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-tertiary-container h-full rounded-full" style="width: 19%"></div>
+</div>
+</div>
+</section>
+
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+
+<div class="p-space-md lg:p-space-lg flex flex-col md:flex-row gap-space-md justify-between items-stretch md:items-center bg-surface-container-lowest">
+<div class="flex flex-col sm:flex-row sm:items-center gap-space-md">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Последние материалы</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Всего 342 единицы медиаконтента</p>
+</div>
+
+<div class="flex items-center p-1 bg-surface-container-low rounded-xl gap-1 overflow-x-auto">
+<button class="filter-tab px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface shadow-sm font-label-md text-label-md transition-colors" data-filter="all">Все</button>
+<button class="filter-tab px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-filter="image">Фото</button>
+<button class="filter-tab px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-filter="video">Видео</button>
+<button class="filter-tab px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-filter="audio">Аудио</button>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+
+<div class="relative flex-1 sm:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-outline">search</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline text-body-md font-body-md focus:outline-none focus:bg-surface-container-lowest transition-colors" id="tableSearch" placeholder="Поиск по названию или автору..." type="text"/>
+</div>
+
+<div class="relative">
+<select class="h-10 px-3 bg-surface-container-low rounded-xl text-on-surface font-label-md text-label-md focus:outline-none">
+<option value="">Все статусы</option>
+<option value="published">Опубликовано</option>
+<option value="pending">На модерации</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/70 text-on-surface-variant font-label-caps text-label-caps uppercase">
+<th class="py-3 px-4">Превью</th>
+<th class="py-3 px-4">Название материала</th>
+<th class="py-3 px-4">Тип</th>
+<th class="py-3 px-4">Автор</th>
+<th class="py-3 px-4">Категория</th>
+<th class="py-3 px-4">Дата публикации</th>
+<th class="py-3 px-4">Статус</th>
+<th class="py-3 px-4 text-right">Действия</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-body-md font-body-md">
+
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-3.5 px-4 w-16">
+<div class="relative w-12 h-10 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-023.jpg"/>
+<span class="absolute bottom-0.5 right-0.5 bg-black/60 text-white rounded p-0.5 leading-none flex items-center">
+<span class="material-symbols-outlined text-[10px]">image</span>
+</span>
+</div>
+</td>
+<td class="py-3.5 px-4 min-w-[200px]">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Альпийский рассвет над озером</span>
+<span class="font-body-sm text-body-sm text-outline">mountain_sunrise_2026.jpg • 4.8 МБ</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-caps text-label-caps uppercase">Изображение</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center font-label-md text-label-md text-primary font-semibold">АС</div>
+<span class="text-on-surface font-label-lg text-label-lg">Алексей Смирнов</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="text-on-surface-variant font-body-md text-body-md">Фотографии</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-on-surface-variant">
+                12 мая 2026, 14:20
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                  Опубликовано
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Просмотр">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-error hover:bg-error-container/40 transition-colors" onclick="openDeleteModal('Альпийский рассвет над озером', 'Изображение')" title="Удалить">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-3.5 px-4 w-16">
+<div class="relative w-12 h-10 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-037.jpg"/>
+<span class="absolute bottom-0.5 right-0.5 bg-black/60 text-white rounded p-0.5 leading-none flex items-center">
+<span class="material-symbols-outlined text-[10px]">movie</span>
+</span>
+</div>
+</td>
+<td class="py-3.5 px-4 min-w-[200px]">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Основы UI анимации в CSS и JS</span>
+<span class="font-body-sm text-body-sm text-outline">ui_animation_masterclass.mp4 • 142 МБ • 18:45</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-caps text-label-caps uppercase">Видео</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-tertiary/20 flex items-center justify-center font-label-md text-label-md text-tertiary font-semibold">ДК</div>
+<span class="text-on-surface font-label-lg text-label-lg">Дарья Ковалева</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="text-on-surface-variant font-body-md text-body-md">Обучение</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-on-surface-variant">
+                11 мая 2026, 09:12
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                  На модерации
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Просмотр">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-error hover:bg-error-container/40 transition-colors" onclick="openDeleteModal('Основы UI анимации в CSS и JS', 'Видео')" title="Удалить">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-3.5 px-4 w-16">
+<div class="relative w-12 h-10 rounded-lg overflow-hidden bg-surface-container flex items-center justify-center bg-tertiary-fixed">
+<span class="material-symbols-outlined text-tertiary text-[20px]">equalizer</span>
+<span class="absolute bottom-0.5 right-0.5 bg-black/60 text-white rounded p-0.5 leading-none flex items-center">
+<span class="material-symbols-outlined text-[10px]">audiotrack</span>
+</span>
+</div>
+</td>
+<td class="py-3.5 px-4 min-w-[200px]">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Эмбиент для фокуса и продуктивности</span>
+<span class="font-body-sm text-body-sm text-outline">focus_deep_flow_320kbps.mp3 • 12.4 МБ • 05:20</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-caps text-label-caps uppercase">Аудио</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-secondary/20 flex items-center justify-center font-label-md text-label-md text-secondary font-semibold">МО</div>
+<span class="text-on-surface font-label-lg text-label-lg">Михаил Орлов</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="text-on-surface-variant font-body-md text-body-md">Музыка</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-on-surface-variant">
+                10 мая 2026, 21:40
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                  Опубликовано
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Просмотр">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-error hover:bg-error-container/40 transition-colors" onclick="openDeleteModal('Эмбиент для фокуса и продуктивности', 'Аудио')" title="Удалить">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-3.5 px-4 w-16">
+<div class="relative w-12 h-10 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-116.jpg"/>
+<span class="absolute bottom-0.5 right-0.5 bg-black/60 text-white rounded p-0.5 leading-none flex items-center">
+<span class="material-symbols-outlined text-[10px]">movie</span>
+</span>
+</div>
+</td>
+<td class="py-3.5 px-4 min-w-[200px]">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Городской неоновый таймлапс 4K</span>
+<span class="font-body-sm text-body-sm text-outline">tokyo_lights_loop.mov • 310 МБ • 01:15</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-caps text-label-caps uppercase">Видео</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-error/20 flex items-center justify-center font-label-md text-label-md text-error font-semibold">СБ</div>
+<span class="text-on-surface font-label-lg text-label-lg">Сергей Белов</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="text-on-surface-variant font-body-md text-body-md">Развлечения</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-on-surface-variant">
+                9 мая 2026, 18:05
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                  На модерации
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Просмотр">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-error hover:bg-error-container/40 transition-colors" onclick="openDeleteModal('Городской неоновый таймлапс 4K', 'Видео')" title="Удалить">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-3.5 px-4 w-16">
+<div class="relative w-12 h-10 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-033.jpg"/>
+<span class="absolute bottom-0.5 right-0.5 bg-black/60 text-white rounded p-0.5 leading-none flex items-center">
+<span class="material-symbols-outlined text-[10px]">image</span>
+</span>
+</div>
+</td>
+<td class="py-3.5 px-4 min-w-[200px]">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Скандинавская студия: Архитектура</span>
+<span class="font-body-sm text-body-sm text-outline">nordic_studio_raw.png • 8.1 МБ</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-caps text-label-caps uppercase">Изображение</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center font-label-md text-label-md text-primary font-semibold">АС</div>
+<span class="text-on-surface font-label-lg text-label-lg">Алексей Смирнов</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="text-on-surface-variant font-body-md text-body-md">Фотографии</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-on-surface-variant">
+                8 мая 2026, 11:34
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                  Опубликовано
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Просмотр">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-error hover:bg-error-container/40 transition-colors" onclick="openDeleteModal('Скандинавская студия: Архитектура', 'Изображение')" title="Удалить">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm text-body-sm font-body-sm text-on-surface-variant">
+<span>Показано 5 из 342 материалов</span>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container text-outline hover:text-on-surface transition-colors disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm">1</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors">2</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors">3</button>
+<span class="px-1 text-outline">...</span>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors">69</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-space-md mb-space-lg">
+
+<div class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Динамика загрузок</h3>
+<p class="font-body-sm text-body-sm text-outline">Число новых файлов по дням недели</p>
+</div>
+<span class="px-2 py-1 rounded bg-surface-container text-primary font-label-caps text-label-caps uppercase font-semibold">+24% пик</span>
+</div>
+
+<div class="h-32 w-full flex items-end gap-2 pt-4">
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full bg-primary/20 hover:bg-primary rounded-t transition-all h-[40%]"></div>
+<span class="font-label-caps text-label-caps text-outline">ПН</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full bg-primary/20 hover:bg-primary rounded-t transition-all h-[60%]"></div>
+<span class="font-label-caps text-label-caps text-outline">ВТ</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full bg-primary/20 hover:bg-primary rounded-t transition-all h-[50%]"></div>
+<span class="font-label-caps text-label-caps text-outline">СР</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full bg-primary/20 hover:bg-primary rounded-t transition-all h-[80%]"></div>
+<span class="font-label-caps text-label-caps text-outline">ЧТ</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full bg-primary rounded-t shadow-sm h-[95%]"></div>
+<span class="font-label-caps text-label-caps text-primary font-bold">ПТ</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full bg-primary/30 hover:bg-primary rounded-t transition-all h-[70%]"></div>
+<span class="font-label-caps text-label-caps text-outline">СБ</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full bg-primary/20 hover:bg-primary rounded-t transition-all h-[35%]"></div>
+<span class="font-label-caps text-label-caps text-outline">ВС</span>
+</div>
+</div>
+</div>
+
+<div class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface">Популярные категории</h3>
+<span class="font-label-md text-label-md text-primary cursor-pointer hover:underline">Управление (6)</span>
+</div>
+<div class="flex flex-col gap-space-sm mt-3">
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface">Фотографии</span>
+<span class="font-label-md text-label-md text-outline">148 шт.</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 70%"></div>
+</div>
+<div class="flex items-center justify-between mt-1">
+<span class="font-body-md text-body-md text-on-surface">Обучение и лекции</span>
+<span class="font-label-md text-label-md text-outline">86 шт.</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 48%"></div>
+</div>
+<div class="flex items-center justify-between mt-1">
+<span class="font-body-md text-body-md text-on-surface">Музыка и треки</span>
+<span class="font-label-md text-label-md text-outline">64 шт.</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 38%"></div>
+</div>
+</div>
+</div>
+<div class="pt-space-sm">
+<span class="font-body-sm text-body-sm text-outline">3 новые категории запланированы к созданию</span>
+</div>
+</div>
+
+<div class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface">Быстрая модерация</h3>
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-label-caps text-label-caps">Ожидают 3</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Проверьте соответствие правилам загрузки контента перед публикацией.</p>
+</div>
+<div class="flex flex-col gap-2 my-2">
+<div class="p-2.5 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">videocam</span>
+<span class="font-label-md text-label-md text-on-surface truncate max-w-[140px]">ui_animation.mp4</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 text-emerald-600 hover:bg-emerald-50 rounded" title="Одобрить">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</button>
+<button class="p-1 text-error hover:bg-error-container/40 rounded" title="Отклонить">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">movie</span>
+<span class="font-label-md text-label-md text-on-surface truncate max-w-[140px]">tokyo_lights.mov</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 text-emerald-600 hover:bg-emerald-50 rounded" title="Одобрить">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</button>
+<button class="p-1 text-error hover:bg-error-container/40 rounded" title="Отклонить">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<button class="w-full py-2 bg-surface-container hover:bg-surface-container-high rounded-xl text-on-surface font-label-md text-label-md transition-colors text-center">
+          Открыть полный журнал модерации
+        </button>
+</div>
+</section>
+</div>
+
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm hidden items-center justify-center p-4" id="deleteModal">
+<div class="bg-surface-container-lowest max-w-md w-full rounded-2xl shadow-xl p-space-lg flex flex-col gap-space-md animate-in fade-in zoom-in-95 duration-150">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-error-container/70 flex items-center justify-center text-error flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">delete_forever</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Удалить материал?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Вы собираетесь безвозвратно удалить элемент <span class="font-semibold text-on-surface" id="deleteModalItemTitle">«Название»</span>. Это действие нельзя будет отменить.
+          </p>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-xl flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">info</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Все связанные теги и комментарии также будут стёрты.</span>
+</div>
+<div class="flex items-center justify-end gap-space-sm mt-space-xs">
+<button class="px-space-md py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg transition-colors" onclick="closeDeleteModal()">
+          Отмена
+        </button>
+<button class="px-space-md py-2.5 rounded-xl bg-error text-on-error hover:opacity-90 font-label-lg text-label-lg transition-opacity flex items-center gap-1.5 shadow-sm" onclick="confirmDeleteAction()">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+<span>Удалить материал</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+    function openDeleteModal(title, type) {
+      const modal = document.getElementById('deleteModal');
+      const titleSpan = document.getElementById('deleteModalItemTitle');
+      if (titleSpan) titleSpan.textContent = '«' + title + '»';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeDeleteModal() {
+      const modal = document.getElementById('deleteModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function confirmDeleteAction() {
+      closeDeleteModal();
+
+      const alert = document.createElement('div');
+      alert.className = 'fixed bottom-6 right-6 z-50 bg-on-surface text-surface px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 font-label-md text-label-md animate-bounce';
+      alert.innerHTML = '<span class="material-symbols-outlined text-[18px] text-emerald-400">check_circle</span> Материал успешно удален из базы данных';
+      document.body.appendChild(alert);
+      setTimeout(() => alert.remove(), 3500);
+    }
+
+
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.filter-tab').forEach(t => {
+          t.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+          t.classList.add('text-on-surface-variant');
+        });
+        this.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+        this.classList.remove('text-on-surface-variant');
+      });
+    });
+
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeDeleteModal();
+    });
+  </script>
+</div></main></div></div><div class="mobile-view bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter-mobile flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="Назад" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><img alt="Brand logo. - Primary color: #4f46e5
+- Font: inter
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="/assets/media/logo.svg"/><h1 class="font-title-md text-title-md text-on-surface ml-1">Админ-панель</h1></div><div class="flex items-center gap-space-xs"><a aria-label="На сайт" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="glavnaya-stranitsa" href="#"><span class="material-symbols-outlined text-[22px]">home</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full pb-10">
+
+<section class="px-gutter-mobile pt-space-md flex flex-col gap-space-sm">
+<div class="inline-flex items-center gap-1.5 self-start px-2 py-0.5 rounded-full bg-surface-container-high text-primary">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-caps text-label-caps uppercase">Система управления • Мониторинг активен</span>
+</div>
+<div class="flex items-end justify-between gap-space-sm mt-1">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Панель администратора</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Общая статистика и модерация</p>
+</div>
+<button class="flex items-center gap-1 px-3 py-2 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm active:scale-95 transition-transform shrink-0">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Новый ресурс</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-space-xs">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">calendar_today</span>
+<span>Последние 30 дней</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</button>
+<span class="font-body-sm text-body-sm text-outline">Обновлено только что</span>
+</div>
+</section>
+
+<section class="px-gutter-mobile mt-space-md">
+<div class="p-space-md rounded-xl bg-gradient-to-r from-surface-container-high via-surface-container to-surface-container-high shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary">Состояние системы: 99.98%</span>
+<span class="font-label-caps text-label-caps text-error bg-error-container text-on-error-container px-1.5 py-0.5 rounded-full">3 в очереди</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-0.5">3 новых медиафайла ожидают ручной верификации перед публикацией</p>
+</div>
+</div>
+<button class="w-full py-2 px-space-md rounded-lg bg-surface-container-lowest text-primary font-label-lg text-label-lg shadow-sm flex items-center justify-center gap-1.5 active:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-[18px]">assignment_turned_in</span>
+<span>Проверить очередь (3)</span>
+</button>
+</div>
+</section>
+
+<nav class="w-full mt-space-md px-gutter-mobile">
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+<button class="px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shrink-0 shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">dashboard</span>
+<span>Обзор</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">group</span>
+<span>Пользователи</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">perm_media</span>
+<span>Материалы</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">category</span>
+<span>Категории</span>
+</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-low text-secondary font-label-md text-label-md shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+<span>На сайт</span>
+</button>
+</div>
+</nav>
+
+<section class="px-gutter-mobile mt-space-md grid grid-cols-2 gap-space-sm">
+
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Пользователи</span>
+<div class="w-6 h-6 rounded-md bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[14px]">person</span>
+</div>
+</div>
+<div class="mt-2">
+<div class="font-headline-md text-headline-md text-on-surface">1 248</div>
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-secondary mt-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+12% за месяц</span>
+</div>
+</div>
+</div>
+
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Материалы</span>
+<div class="w-6 h-6 rounded-md bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[14px]">folder_copy</span>
+</div>
+</div>
+<div class="mt-2">
+<div class="font-headline-md text-headline-md text-on-surface">342</div>
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-primary mt-0.5">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+<span>+28 за неделю</span>
+</div>
+</div>
+</div>
+
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Изображения</span>
+<div class="w-6 h-6 rounded-md bg-secondary-fixed-dim flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[14px]">image</span>
+</div>
+</div>
+<div class="mt-2">
+<div class="font-headline-md text-headline-md text-on-surface">180</div>
+<div class="font-body-sm text-body-sm text-outline mt-0.5">
+          52% объема диска
+        </div>
+</div>
+</div>
+
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Видео / Аудио</span>
+<div class="w-6 h-6 rounded-md bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[14px]">smart_display</span>
+</div>
+</div>
+<div class="mt-2">
+<div class="font-headline-md text-headline-md text-on-surface">98 <span class="text-outline font-body-md">/</span> 64</div>
+<div class="font-body-sm text-body-sm text-tertiary mt-0.5">
+          9 новых за 24 ч
+        </div>
+</div>
+</div>
+</section>
+
+<section class="px-gutter-mobile mt-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Активность</span>
+<h3 class="font-title-md text-title-md text-on-surface">Динамика загрузок</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps font-semibold">+24% ПИК</span>
+</div>
+
+<div class="mt-space-md flex items-end justify-between h-28 gap-2 pt-2">
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full bg-surface-container-high rounded-t-md transition-all hover:bg-primary" style="height: 38%;"></div>
+<span class="font-label-caps text-label-caps text-outline">ПН</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full bg-surface-container-high rounded-t-md transition-all hover:bg-primary" style="height: 52%;"></div>
+<span class="font-label-caps text-label-caps text-outline">ВТ</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full bg-surface-container-high rounded-t-md transition-all hover:bg-primary" style="height: 44%;"></div>
+<span class="font-label-caps text-label-caps text-outline">СР</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full bg-surface-container-high rounded-t-md transition-all hover:bg-primary" style="height: 68%;"></div>
+<span class="font-label-caps text-label-caps text-outline">ЧТ</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full bg-primary-container rounded-t-md shadow-sm" style="height: 96%;"></div>
+<span class="font-label-caps text-label-caps text-primary font-bold">ПТ</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full bg-surface-container-high rounded-t-md transition-all hover:bg-primary" style="height: 72%;"></div>
+<span class="font-label-caps text-label-caps text-outline">СБ</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full bg-surface-container-high rounded-t-md transition-all hover:bg-primary" style="height: 58%;"></div>
+<span class="font-label-caps text-label-caps text-outline">ВС</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="px-gutter-mobile mt-space-md">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-2">
+<h3 class="font-title-md text-title-md text-on-surface">Быстрая модерация</h3>
+<span class="w-5 h-5 rounded-full bg-error-container text-on-error-container font-label-caps text-label-caps flex items-center justify-center">3</span>
+</div>
+<button class="font-label-md text-label-md text-primary">Правила</button>
+</div>
+<div class="flex flex-col gap-space-xs">
+
+<div class="p-3 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-space-sm" id="mod-item-1">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-074.jpg"/>
+<span class="absolute bottom-0.5 right-0.5 material-symbols-outlined text-[14px] text-white drop-shadow">play_circle</span>
+</div>
+<div class="min-w-0">
+<div class="font-title-md text-title-md text-on-surface truncate">ui_animation.mp4</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-fixed text-tertiary font-label-caps text-label-caps">Видео • 1080p</span>
+<span class="font-body-sm text-body-sm text-outline">18.4 МБ</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<button aria-label="Отклонить" class="w-9 h-9 rounded-lg bg-surface-container text-error flex items-center justify-center active:scale-90 transition-transform" onclick="document.getElementById('mod-item-1').remove()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+<button aria-label="Одобрить" class="w-9 h-9 rounded-lg bg-primary text-on-primary flex items-center justify-center active:scale-90 transition-transform shadow-sm" onclick="document.getElementById('mod-item-1').remove()">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</button>
+</div>
+</div>
+
+<div class="p-3 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-space-sm" id="mod-item-2">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-122.jpg"/>
+<span class="absolute bottom-0.5 right-0.5 material-symbols-outlined text-[14px] text-white drop-shadow">play_circle</span>
+</div>
+<div class="min-w-0">
+<div class="font-title-md text-title-md text-on-surface truncate">tokyo_lights.mov</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-fixed text-tertiary font-label-caps text-label-caps">Видео • 4K</span>
+<span class="font-body-sm text-body-sm text-outline">142 МБ</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<button aria-label="Отклонить" class="w-9 h-9 rounded-lg bg-surface-container text-error flex items-center justify-center active:scale-90 transition-transform" onclick="document.getElementById('mod-item-2').remove()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+<button aria-label="Одобрить" class="w-9 h-9 rounded-lg bg-primary text-on-primary flex items-center justify-center active:scale-90 transition-transform shadow-sm" onclick="document.getElementById('mod-item-2').remove()">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</button>
+</div>
+</div>
+</div>
+<button class="w-full mt-space-xs py-2 rounded-lg bg-surface-container-low text-primary font-label-md text-label-md flex items-center justify-center gap-1">
+<span>Открыть полный журнал модерации</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</section>
+
+<section class="px-gutter-mobile mt-space-md">
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-title-md text-title-md text-on-surface">Последние материалы</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Всего: 342</span>
+</div>
+
+<div class="relative w-full mb-space-xs">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[20px] text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest rounded-xl font-body-md text-body-md text-on-surface placeholder:text-outline outline-none shadow-sm focus:bg-surface-bright" placeholder="Поиск по названию или автору..." type="text"/>
+</div>
+
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
+<button class="px-3 py-1 rounded-full bg-on-surface text-surface font-label-md text-label-md shrink-0">Все</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md shrink-0 shadow-sm">Фото</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md shrink-0 shadow-sm">Видео</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md shrink-0 shadow-sm">Аудио</button>
+</div>
+
+<div class="flex flex-col gap-space-sm mt-space-sm">
+
+<div class="p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex gap-space-sm">
+<div class="w-20 h-20 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-020.jpg"/>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-1">
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps">Изображение</span>
+<span class="font-label-caps text-label-caps text-secondary flex items-center gap-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Опубликован
+                </span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface truncate mt-1">Альпийский рассвет над озером</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Автор: Алексей Смирнов</p>
+</div>
+<div class="font-body-sm text-body-sm text-outline">Вчера, 14:20 • 4.8 МБ</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1 active:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Просмотр</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-error-container text-on-error-container font-label-md text-label-md flex items-center gap-1 active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Удалить</span>
+</button>
+</div>
+</div>
+
+<div class="p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex gap-space-sm">
+<div class="w-20 h-20 rounded-lg bg-surface-container overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-media-preview src="/assets/media/media-089.jpg"/>
+<div class="absolute inset-0 bg-on-background/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[24px]">play_arrow</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-1">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-caps text-label-caps">Видео</span>
+<span class="font-label-caps text-label-caps text-error bg-error-container text-on-error-container px-1.5 py-0.2 rounded-full">
+                  На модерации
+                </span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface truncate mt-1">Основы UI анимации в CSS и JS</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Автор: Дарья Ковалева</p>
+</div>
+<div class="font-body-sm text-body-sm text-outline">12 минут назад • 120 МБ</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1 active:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Просмотр</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-error-container text-on-error-container font-label-md text-label-md flex items-center gap-1 active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Удалить</span>
+</button>
+</div>
+</div>
+
+<div class="p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex gap-space-sm">
+<div class="w-20 h-20 rounded-lg bg-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[32px] text-on-secondary-fixed">graphic_eq</span>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-1">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps">Аудио</span>
+<span class="font-label-caps text-label-caps text-secondary flex items-center gap-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Опубликован
+                </span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface truncate mt-1">Эмбиент для фокуса</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Автор: Михаил Орлов</p>
+</div>
+<div class="font-body-sm text-body-sm text-outline">3 дня назад • 34 МБ</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1 active:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Просмотр</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-error-container text-on-error-container font-label-md text-label-md flex items-center gap-1 active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Удалить</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div></main></div><script src="../assets/js/route-adapter.js?v=20261008m6"></script><script src="../assets/js/brand-normalizer.js?v=20261007m2"></script><script src="../assets/js/card-normalizer.js?v=20261008m12"></script><script src="../assets/js/section-variant.js?v=20261008m12"></script><script src="../assets/js/detail-variant.js?v=20261007m4"></script><script src="../assets/js/search-behavior.js?v=20261007m2"></script><script src="../assets/js/filter-normalizer.js?v=20261007m2"></script><script src="../assets/js/api-client.js?v=20261008m10"></script><script src="../assets/js/catalog-api.js?v=20261008m10"></script><script src="../assets/js/auth-pages.js?v=20261007m2"></script><script src="../assets/js/profile-api.js?v=20261007m2"></script><script src="../assets/js/upload-api.js?v=20261007m2"></script><script src="../assets/js/detail-admin-api.js?v=20261007m2"></script><script>document.documentElement.classList.remove("mg-preinit");</script></body></html>

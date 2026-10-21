@@ -72,7 +72,7 @@
     return (String(name || "MG").trim().split(/\s+/).slice(0, 2).map((part) => part[0]).join("").toUpperCase() || "MG");
   }
 
-  function cardHtml(material) {
+  function cardHtml(material, canDelete = false) {
     const info = typeInfo(material.type);
     const detail = pageFile("detail.html", "?id=" + material.id);
 
@@ -99,17 +99,22 @@
         : '<div class="mg-card__placeholder"><span class="material-symbols-outlined">' + info.icon + '</span></div>';
     }
 
+    const action = canDelete
+      ? '<button class="mg-card__save" type="button" data-api-delete="' + material.id + '" aria-label="Удалить"><span class="material-symbols-outlined">delete</span></button>'
+      : '<button class="mg-card__save" type="button" aria-label="Сохранить"><span class="material-symbols-outlined">bookmark_border</span></button>';
+
     return '' +
       '<article class="mg-card" data-material-id="' + material.id + '" data-material-type="' + esc(material.type) + '" data-material-created="' + esc(material.createdAt || "") + '" data-material-views="' + Number(material.views || 0) + '" data-material-likes="' + Number(material.likes || 0) + '" data-mg-search-text="' + esc([
         material.title,
         material.description,
         material.category,
+        (material.tags || []).join(" "),
         material.author?.name
       ].join(" ")) + '">' +
         '<a class="mg-card__preview" href="' + detail + '">' +
           image +
           '<span class="mg-card__type"><span class="material-symbols-outlined">' + info.icon + '</span>' + info.label + '</span>' +
-
+          action +
           ((material.type === "video" || material.type === "audio")
             ? '<span class="mg-card__play"><span class="material-symbols-outlined">play_arrow</span></span>'
             : '') +
@@ -127,6 +132,10 @@
               '<span class="mg-card__author-name">' + esc(material.author?.name || "Автор") + '</span>' +
             '</div>' +
             '<div class="mg-card__metrics">' +
+              '<span class="mg-card__metric mg-card__metric--likes" role="button" tabindex="0" data-api-like="' + material.id + '" aria-pressed="' + (material.liked ? "true" : "false") + '">' +
+                '<span class="material-symbols-outlined">' + (material.liked ? "favorite" : "favorite_border") + '</span>' +
+                '<span data-like-count>' + Number(material.likes || 0) + '</span>' +
+              '</span>' +
               '<span class="mg-card__metric"><span class="material-symbols-outlined">' + (material.type === "audio" ? "headphones" : "visibility") + '</span>' + Number(material.views || 0) + '</span>' +
             '</div>' +
           '</div>' +
@@ -139,7 +148,7 @@
     return first ? first.parentElement : null;
   }
 
-  function renderCards(scope, materials) {
+  function renderCards(scope, materials, canDelete = false) {
     const container = findCardContainer(scope);
     if (!container) return null;
 
@@ -153,7 +162,7 @@
       return container;
     }
 
-    container.innerHTML = materials.map((material) => cardHtml(material)).join("");
+    container.innerHTML = materials.map((material) => cardHtml(material, canDelete)).join("");
 
     if (scope.classList.contains("mobile-view")) {
       container.querySelectorAll(".mg-card").forEach((card) => {
@@ -162,7 +171,7 @@
         const save = card.querySelector(".mg-card__save");
         const saveIcon = save?.querySelector(".material-symbols-outlined");
 
-        if (save) {
+        if (save && !save.hasAttribute("data-api-delete")) {
           save.setAttribute("aria-label", "Сохранить");
           if (saveIcon) saveIcon.textContent = "bookmark_border";
         }
@@ -218,6 +227,10 @@
 
   function updateHeader(user) {
     document.querySelectorAll("header").forEach((header) => {
+      header.querySelectorAll('[data-path="admin-panel"],[data-path="panel-administratora"]').forEach((link) => {
+        link.style.display = user?.role === "admin" ? "" : "none";
+      });
+
       header.querySelectorAll("span,p").forEach((node) => {
         const text = node.textContent.trim();
         if (text === "Алексей Смирнов") node.textContent = user ? user.name : "Гость";
@@ -273,7 +286,7 @@
       const save = card.querySelector(".mg-card__save");
       const saveIcon = save?.querySelector(".material-symbols-outlined");
 
-        if (save) {
+        if (save && !save.hasAttribute("data-api-delete")) {
           save.setAttribute("aria-label", "Сохранить");
           if (saveIcon) saveIcon.textContent = "bookmark_border";
         }
@@ -293,6 +306,31 @@
     if (allLink) allLink.textContent = "Все (" + Number(result.total || materials.length) + ")";
   }
 
+  function initHeaderSearch() {
+    document.querySelectorAll("header").forEach((header) => {
+      header.querySelectorAll("input").forEach((input) => {
+        if (!/поиск/i.test(input.placeholder || "")) return;
+
+        const go = () => {
+          const q = input.value.trim();
+          location.href = pageFile("search.html", q ? "?q=" + encodeURIComponent(q) : "");
+        };
+
+        input.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            go();
+          }
+        });
+
+        input.closest("form")?.addEventListener("submit", (event) => {
+          event.preventDefault();
+          go();
+        });
+      });
+    });
+  }
+
   document.addEventListener("click", async (event) => {
     const logout = event.target.closest('a[data-path="login"]');
 
@@ -309,6 +347,58 @@
       }
     }
 
+    const like = event.target.closest("[data-api-like]");
+
+    if (like) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      try {
+        const result = await api("like", {
+          method: "POST",
+          json: { id: Number(like.dataset.apiLike) }
+        });
+
+        const icon = like.querySelector(".material-symbols-outlined");
+        const count = like.querySelector("[data-like-count]");
+
+        if (icon) icon.textContent = result.liked ? "favorite" : "favorite_border";
+        if (count) count.textContent = result.likes;
+        like.setAttribute("aria-pressed", result.liked ? "true" : "false");
+      } catch (error) {
+        if (error.status === 401) {
+          location.href = pageFile("login.html");
+        } else {
+          toast(error.message, true);
+        }
+      }
+    }
+
+    const deleteButton = event.target.closest("[data-api-delete]");
+
+    if (deleteButton) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (!confirm("Удалить этот материал?")) return;
+
+      try {
+        await api("delete_material", {
+          method: "POST",
+          json: { id: Number(deleteButton.dataset.apiDelete) }
+        });
+
+        deleteButton.closest(".mg-card")?.remove();
+
+        if (page === "detail.html") {
+          location.href = pageFile("gallery.html");
+        } else {
+          toast("Материал удалён");
+        }
+      } catch (error) {
+        toast(error.message, true);
+      }
+    }
   }, true);
 
   window.MG = {
@@ -328,5 +418,6 @@
   };
 
   initUser();
+  initHeaderSearch();
   initMobileHome().catch((error) => toast(error.message, true));
 })();

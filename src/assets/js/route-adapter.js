@@ -23,7 +23,9 @@
     'profile': root + 'pages/profile.html',
     'lichnyy-kabinet': root + 'pages/profile.html',
     'add-asset': root + 'pages/upload.html',
-    'dobavlenie-materiala': root + 'pages/upload.html'
+    'dobavlenie-materiala': root + 'pages/upload.html',
+    'admin-panel': root + 'pages/admin.html',
+    'panel-administratora': root + 'pages/admin.html'
   };
 
   const polishMobileOnly = () => {
