@@ -927,11 +927,148 @@
     }
   }
 
+
+  function findRelated(scope) {
+    const heading = [...scope.querySelectorAll("h2,h3")].find((node) =>
+      node.textContent.trim() === "Похожие материалы"
+    );
+    const section = scope.classList.contains("mobile-view")
+      ? heading?.parentElement?.parentElement
+      : heading?.closest("section");
+    const cards = section?.querySelector(
+      scope.classList.contains("mobile-view") ? ".overflow-x-auto" : ".grid"
+    );
+    return section && cards ? { scope, section, cards } : null;
+  }
+
+  async function loadRelated(material, areas) {
+    if (!areas.length) return;
+    let result;
+    try {
+      result = await MG.api("materials", {
+        query: "?type=" + encodeURIComponent(material.type)
+      });
+    } catch (_) {
+      return;
+    }
+
+    const others = (result.materials || [])
+      .filter((item) => item.type === material.type && Number(item.id) !== Number(material.id))
+      .sort((a, b) =>
+        Number(b.category === material.category) - Number(a.category === material.category)
+      );
+
+    const pageByType = { image: "images.html", video: "videos.html", audio: "audio.html" };
+    const listUrl = MG.pageFile(pageByType[material.type]);
+    const titleByType = { image: "изображений", video: "видео", audio: "аудио" };
+
+    areas.forEach(({ scope, section, cards }) => {
+      const mobile = scope.classList.contains("mobile-view");
+      const slots = [...cards.children];
+      slots.forEach((card, index) => {
+        const item = others[index];
+        if (!item) {
+          card.remove();
+          return;
+        }
+
+        const url = MG.pageFile("detail.html", "?id=" + item.id);
+        const title = card.querySelector(mobile ? "h4" : "a.font-title-md");
+        if (title) {
+          title.textContent = item.title;
+          if (title.tagName === "A") title.href = url;
+        }
+
+        const preview = card.querySelector("[data-media-preview]");
+        const image = MG.mediaUrl(
+          item.thumbnailUrl || (item.type === "image" ? item.fileUrl || item.sourceUrl : "") || ""
+        );
+        if (preview?.tagName === "IMG") {
+          preview.alt = item.title;
+          if (image) preview.src = image;
+          else {
+            preview.removeAttribute("src");
+            preview.style.display = "none";
+          }
+        } else if (preview) {
+          preview.style.backgroundImage = image ? "url(" + JSON.stringify(image) + ")" : "none";
+        }
+
+        const kind = card.querySelector(".absolute.top-2.left-2");
+        if (kind) kind.textContent = MG.typeInfo(item.type).label;
+        card.querySelector(".absolute.bottom-2.right-2")?.remove();
+
+        const footer = card.querySelector(mobile
+          ? ".p-3 .flex.items-center.justify-between"
+          : ".border-t");
+        const author = footer?.children[0];
+        const views = footer?.children[1];
+        if (author) author.textContent = item.author?.name || "Автор";
+        if (views) {
+          const count = Number(item.views || 0).toLocaleString("ru-RU");
+          if (mobile) views.textContent = count + " просмотров";
+          else {
+            [...views.childNodes].forEach((child) => {
+              if (child.nodeType === Node.TEXT_NODE) child.remove();
+            });
+            views.append(document.createTextNode(" " + count));
+          }
+        }
+
+        card.dataset.materialId = String(item.id);
+        card.style.cursor = "pointer";
+        card.setAttribute("role", "link");
+        card.setAttribute("tabindex", "0");
+        card.setAttribute("aria-label", "Открыть материал: " + item.title);
+        card.addEventListener("click", (event) => {
+          if (event.target.closest("a[href]")) return;
+          location.href = url;
+        });
+        card.addEventListener("keydown", (event) => {
+          if (event.target === card && (event.key === "Enter" || event.key === " ")) {
+            event.preventDefault();
+            location.href = url;
+          }
+        });
+      });
+
+      if (!others.length) return;
+
+      const subtitle = section.querySelector("p");
+      if (subtitle) {
+        subtitle.textContent = others.some((item) => item.category === material.category)
+          ? "Похожие материалы по категории «" + material.category + "»"
+          : "Другие материалы раздела";
+      }
+
+      if (mobile) {
+        const all = section.querySelector("button");
+        if (all) {
+          all.textContent = "Все (" + Number(result.total || result.materials.length) + ")";
+          all.addEventListener("click", () => { location.href = listUrl; });
+        }
+      } else {
+        const all = section.querySelector("a[data-path]");
+        if (all) {
+          all.removeAttribute("data-path");
+          all.href = listUrl;
+          const label = all.querySelector("span:first-child");
+          if (label) label.textContent = "Все " + titleByType[material.type];
+        }
+      }
+      section.style.display = "";
+    });
+  }
+
   async function loadDetail() {
     if (MG.page !== "detail.html") return;
 
     const id = Number(new URLSearchParams(location.search).get("id") || 0);
     if (!id) return;
+
+    const areas = [...document.querySelectorAll(".desktop-view,.mobile-view")]
+      .map(findRelated).filter(Boolean);
+    areas.forEach(({ section }) => { section.style.display = "none"; });
 
     const [result, user] = await Promise.all([
       MG.api("material", { query: "?id=" + id }),
@@ -962,6 +1099,7 @@
       bindLike(scope, material);
       bindDelete(scope, material, user);
     });
+    loadRelated(material, areas);
   }
 
   function adminHtml(users, materials) {

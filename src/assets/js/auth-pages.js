@@ -44,6 +44,7 @@
 
     scope.querySelectorAll("[data-password-error],[data-password-status]").forEach((item) => {
       item.hidden = !mismatch;
+      item.style.display = mismatch ? "" : "none";
     });
 
     const label = scope.querySelector("[data-password-label]");
