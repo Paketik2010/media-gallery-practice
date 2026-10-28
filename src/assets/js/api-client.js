@@ -388,6 +388,11 @@
           json: { id: Number(deleteButton.dataset.apiDelete) }
         });
 
+        if (page === "admin.html") {
+          location.reload();
+          return;
+        }
+
         deleteButton.closest(".mg-card")?.remove();
 
         if (page === "detail.html") {
