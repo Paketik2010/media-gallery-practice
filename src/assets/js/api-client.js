@@ -210,6 +210,52 @@
     }, 3000);
   }
 
+  function confirmAdminDelete(title) {
+    return new Promise((resolve) => {
+      const overlay = document.createElement("div");
+      overlay.id = "mg-admin-delete-confirm";
+      overlay.style.cssText = "position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(11,28,48,.55);backdrop-filter:blur(4px)";
+      overlay.innerHTML =
+        '<div role="dialog" aria-modal="true" aria-labelledby="mg-admin-delete-title" style="width:100%;max-width:440px;border-radius:18px;background:#fff;padding:24px;box-shadow:0 20px 60px rgba(11,28,48,.25);font-family:Inter,sans-serif;color:#0b1c30">' +
+          '<div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">' +
+            '<span class="material-symbols-outlined" style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;background:#ffdad6;color:#ba1a1a;font-size:27px">delete_forever</span>' +
+            '<h2 id="mg-admin-delete-title" style="font-size:20px;font-weight:700;margin:0">Удалить материал?</h2>' +
+          '</div>' +
+          '<p style="font-size:14px;line-height:1.6;margin:0 0 22px">Удалить «' + esc(title) + '»? Это действие нельзя отменить.</p>' +
+          '<div style="display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px">' +
+            '<button type="button" data-admin-cancel style="border:0;border-radius:10px;background:#e5eeff;color:#0b1c30;padding:11px 16px;font-size:14px;font-weight:600;cursor:pointer">Отмена</button>' +
+            '<button type="button" data-admin-confirm style="border:0;border-radius:10px;background:#ba1a1a;color:#fff;padding:11px 16px;font-size:14px;font-weight:600;cursor:pointer">Удалить материал</button>' +
+          '</div>' +
+        '</div>';
+
+      const lastFocus = document.activeElement;
+      const cancel = overlay.querySelector("[data-admin-cancel]");
+      const accept = overlay.querySelector("[data-admin-confirm]");
+
+      function close(confirmed) {
+        document.removeEventListener("keydown", onKeydown, true);
+        overlay.remove();
+        lastFocus?.focus?.();
+        resolve(confirmed);
+      }
+
+      function onKeydown(event) {
+        if (event.key === "Escape") {
+          event.preventDefault();
+          close(false);
+        }
+      }
+
+      overlay.addEventListener("click", (event) => {
+        if (event.target === overlay) close(false);
+      });
+      cancel.addEventListener("click", () => close(false));
+      accept.addEventListener("click", () => close(true));
+      document.body.appendChild(overlay);
+      cancel.focus();
+    });
+  }
+
   let userCache;
 
   async function getUser(force = false) {
@@ -380,8 +426,13 @@
       event.preventDefault();
       event.stopPropagation();
 
-      if (!confirm("Удалить этот материал?")) return;
+      const materialTitle = deleteButton.closest("tr")?.querySelector("td")?.textContent.trim() || "этот материал";
+      const confirmed = page === "admin.html"
+        ? await confirmAdminDelete(materialTitle)
+        : confirm("Удалить этот материал?");
+      if (!confirmed) return;
 
+      deleteButton.disabled = true;
       try {
         await api("delete_material", {
           method: "POST",
@@ -402,6 +453,8 @@
         }
       } catch (error) {
         toast(error.message, true);
+      } finally {
+        deleteButton.disabled = false;
       }
     }
   }, true);
